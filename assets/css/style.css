@@ -471,6 +471,7 @@ html[lang="en"] .stat strong { font-family: var(--font-display); font-weight: 70
 .hero-stamp span { font-size: 1.5rem; display: block; }
 
 /* ---------- Intro banner ---------- */
+
 .intro-banner {
   position: relative;
   z-index: 2;
@@ -490,6 +491,72 @@ html[lang="en"] .stat strong { font-family: var(--font-display); font-weight: 70
   color: var(--text);
 }
 .intro-banner strong { color: var(--accent); }
+
+
+/* ==========================================================================
+   تصميم البطاقتين المتداخلتين (الرقم بالأعلى والنص الافتتاحي بالأسفل)
+   ========================================================================== */
+.stacked-intro {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin-inline: auto;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* البطاقة العلوية الصفراء (الأصغر عرضاً) */
+.stats-tab {
+  width: min(80%, 420px);
+  margin-inline: auto;
+  background: var(--gold);
+  color: #262e17;
+  padding: 24px 20px 36px; /* مساحة سفلية إضافية لأن الصندوق الأبيض سيغطي حافتها */
+  border-radius: 22px 22px 0 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05)
+  position: relative;
+  z-index: 1;
+}
+
+.stats-tab strong {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #262e17
+}
+
+.stats-tab span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #394523;
+  opacity: 0.9;
+}
+
+/* البطاقة السفلية البيضاء (الأعرض وتغطي الحافة السفلية للبطاقة الصفراء) */
+.stacked-intro .intro-banner {
+  width: 100%;
+  margin-top: -18px !important; /* هذا السالب هو سر التداخل الأنيق مثل الصورة */
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 36px 32px;
+  text-align: center;
+}
+
+/* ضبط الألوان في الوضع الليلي */
+:root[data-theme="dark"] .stats-tab {
+  background: #d97706; /* الدرجة البنية العسلية التي اخترناها للوضع الليلي */
+  color: #fffaf0;
+}
 
 /* ---------- Generic split layout ---------- */
 .split {
@@ -1221,4 +1288,103 @@ html[dir="rtl"] .to-top svg { transform: scaleX(-1); }
   .site-header, .to-top, .hero-actions, .quiz-wrap, .site-footer { display: none !important; }
   .reveal { opacity: 1; transform: none; }
   body { background: #fff; color: #000; }
+}
+
+/* ==========================================================================
+   إضافة لمسات لونية أخضر طبيعي متناسق مع ألوان الموقع
+   ========================================================================== */
+:root {
+  /* تعريف درجة أخضر جديدة وحيوية تناسب الطبيعة والنحل */
+  --accent-green: #638c27;        
+  --accent-green-soft: rgba(99, 140, 39, 0.15);
+}
+
+:root[data-theme="dark"] {
+  --accent-green: #d97706;        /* بني عسلي دافئ ومشرق في الوضع الليلي */
+  --accent-green-soft: rgba(217, 119, 6, 0.18);
+}
+
+/* 1. جعل الأزرار الرئيسية في الوضع الليلي بلون بني عسلي دافئ */
+:root[data-theme="dark"] .btn--primary {
+  background: #b45309 !important;
+  color: #fffaf0 !important;
+  border: 2px solid #d97706 !important;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25) !important;
+}
+:root[data-theme="dark"] .btn--primary:hover {
+  background: #d97706 !important;
+  border-color: #f59e0b !important;
+}
+
+/* 2. تلوين العناوين الفرعية الـ (Eyebrow) بالبني الدافئ في الوضع الليلي */
+:root[data-theme="dark"] .eyebrow {
+  color: #f59e0b !important;
+}
+:root[data-theme="dark"] .eyebrow::before {
+  background: #f59e0b !important;
+}
+
+/* 3. تلوين الأيقونات وروابط القائمة بالبني العسلي المتناسق */
+:root[data-theme="dark"] .role-card--worker .role-icon {
+  background: rgba(217, 119, 6, 0.18) !important;
+  color: #f59e0b !important;
+}
+
+:root[data-theme="dark"] .nav a:hover, 
+:root[data-theme="dark"] .nav a.is-active { 
+  color: #f59e0b !important; 
+}
+:root[data-theme="dark"] .nav a::after {
+  background: #f59e0b !important;
+}
+
+/* 4. تلوين الإجابة الصحيحة في الاختبار بالبني الدافئ في الوضع الليلي */
+:root[data-theme="dark"] .q-option.is-correct { 
+  background: rgba(217, 119, 6, 0.18) !important; 
+  border-color: #f59e0b !important; 
+  color: #f59e0b !important; 
+}
+
+/* 1. جعل الزر الأساسي (Primary) باللون الأخضر الطبيعي الجميل */
+.btn--primary {
+  background: var(--accent-green) !important;
+  color: #fffbea !important;
+  border: 2px solid var(--accent-green) !important;
+  box-shadow: 0 4px 12px var(--accent-green-soft) !important;
+}
+.btn--primary:hover {
+  background: #4e6f1f !important;
+  border-color: #4e6f1f !important;
+  color: #ffffff !important;
+}
+
+/* 2. تلوين العناوين الفرعية الـ (Eyebrow) باللون الأخضر لتعطي طابع طبيعي */
+.eyebrow {
+  color: var(--accent-green) !important;
+}
+
+.eyebrow::before {
+  background: var(--accent-green) !important;
+}
+
+/* 3. تلوين الأيقونات المربعة في قسم المملكة والعاملات باللون الأخضر */
+.role-card--worker .role-icon {
+  background: var(--accent-green-soft) !important;
+  color: var(--accent-green) !important;
+}
+
+/* 4. تلوين روابط القائمة عند التمرير أو التحديد باللون الأخضر */
+.nav a:hover, 
+.nav a.is-active { 
+  color: var(--accent-green) !important; 
+}
+.nav a::after {
+  background: var(--accent-green) !important;
+}
+
+/* 5. جعل أزرار الإجابة الصحيحة في الاختبار (Quiz) بلون أخضر متناسق */
+.q-option.is-correct { 
+  background: var(--accent-green-soft) !important; 
+  border-color: var(--accent-green) !important; 
+  color: var(--accent-green) !important; 
 }
