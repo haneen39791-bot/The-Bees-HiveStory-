@@ -516,7 +516,7 @@ html[lang="en"] .stat strong { font-family: var(--font-display); font-weight: 70
   padding: 24px 20px 36px; /* مساحة سفلية إضافية لأن الصندوق الأبيض سيغطي حافتها */
   border-radius: 22px 22px 0 0;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05)
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 1;
 }
@@ -1387,4 +1387,27 @@ html[dir="rtl"] .to-top svg { transform: scaleX(-1); }
   background: var(--accent-green-soft) !important; 
   border-color: var(--accent-green) !important; 
   color: var(--accent-green) !important; 
+}
+
+/* وضع مستطيل شفاف خلف العنوان والنص داخل بانر العسل لزيادة الوضوح */
+.banner-caption {
+  position: relative;
+  background: rgba(20, 19, 25, 0.55) !important; /* خلفية شفافة داكنة مريحة للعين */
+  backdrop-filter: blur(6px) !important;          /* تمويه خفيف وجميل للخلفية خلف النص */
+ padding: 24px 30px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  max-width: 480px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* تلوين النصوص باللون الأبيض المشرق لتبرز بوضوح تام فوق الشفافية */
+.banner-caption h3 {
+  color: #fffaf0 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.banner-caption p {
+  color: #fef6e4 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
