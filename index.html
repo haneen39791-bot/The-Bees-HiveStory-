@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="حكاية خلية — رحلة بين أجنحة النحل وأسرار الطبيعة. تعرف على النحل، مملكته، دورة حياته، صناعة العسل، فوائده، ومكانته في القرآن الكريم.">
+  <meta name="theme-color" content="#fffaf0">
+  <title>حكاية خلية | رحلة بين أجنحة النحل وأسرار الطبيعة</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('bee-story-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (e) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="حكاية خلية — الصفحة الرئيسية">
+        <span class="brand-mark" aria-hidden="true">🐝</span>
+        <span class="brand-name">حكاية <em>خلية</em></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="القائمة الرئيسية">
+        <a href="#hero">الرئيسية</a>
+        <a href="#about">التعريف بالنحل</a>
+        <a href="#colony">مملكة الخلية</a>
+        <a href="#lifecycle">دورة الحياة</a>
+        <a href="#honey">صناعة العسل</a>
+        <a href="#quran">النحل في القرآن</a>
+        <a href="#quiz">اختبر معلوماتك</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="lang-switch" href="en.html" lang="en" hreflang="en" aria-label="Switch to English">
+          EN
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+        <button class="icon-btn" id="theme-toggle" type="button"
+                aria-label="تفعيل الوضع الليلي" aria-pressed="false"
+                data-label-light="تفعيل الوضع النهاري" data-label-dark="تفعيل الوضع الليلي">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.6 8.6 0 1 0 10.9 10.9Z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4-1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="primary-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 1. Hero ============ -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">حكاية خلية <span class="bee-dot">✦</span> عالم النحل</span>
+
+          <h1 class="hero-title">
+            حكاية خلية
+            <span class="accent-text">«رحلة بين أجنحة النحل وأسرار الطبيعة»</span>
+            <span class="hero-subtitle">A Journey into the World of Bees</span>
+          </h1>
+
+          <p class="hero-lead">النحل من الكائنات الصغيرة التي تلعب دورًا كبيرًا في الطبيعة</p>
+          <p>فهو لا ينتج العسل فحسب، بل يساعد النباتات على التكاثر ويحافظ على التوازن البيئي. هيا نكتشف معًا أسرار هذا العالم المدهش!</p>
+
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#about">
+              ابدأ الرحلة
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#quiz">اختبر معلوماتك</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat"><strong>20 ألف+</strong><span>نوع من النحل حول العالم</span></div>
+            <div class="stat"><strong>3</strong><span>أنواع داخل الخلية</span></div>
+            <div class="stat"><strong>4</strong><span>مراحل في دورة الحياة</span></div>
+          </div>
+        </div>
+
+        <div class="hero-art reveal" aria-label="صورة لنحلة على زهرة">
+          <div class="hero-frame">
+            <img src="assets/img/bee-hero.jpg" alt="نحلة تجمع الرحيق من زهرة" width="3840" height="2263">
+          </div>
+          <div class="hero-float hero-float--one">
+            <img src="assets/img/honey-flow.jpg" alt="خلية نحل وأقراص العسل" loading="lazy">
+          </div>
+          <div class="hero-float hero-float--two">
+            <img src="assets/img/bees.jpg" alt="نحل على أطراف خلية" loading="lazy">
+          </div>
+          <div class="hero-stamp" aria-hidden="true"><span>🐝</span>عالم<br>النحل</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="intro-banner reveal">
+          <p><strong>حكاية خلية...</strong> رحلة قصيرة في عالم مخلوق صغير يحمل أسرارًا عظيمة، من لحظة خروجه من البيضة إلى صناعة العسل، ومن دوره في تلقيح الأزهار إلى ما ذكره القرآن الكريم في خلقه.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. What are bees? ============ -->
+    <section class="section section--tint" id="about">
+      <div class="container split">
+        <div class="split-visual reveal">
+          <div class="image-card">
+            <img src="assets/img/bee-hero.jpg" alt="نحلة بين الأزهار تجمع حبوب اللقاح" loading="lazy" width="3840" height="2263">
+          </div>
+        </div>
+        <div class="split-copy reveal">
+          <span class="eyebrow">التعريف بالنحل · What Are Bees?</span>
+          <h2 class="section-title">ما هو النحل؟</h2>
+          <p class="section-lead">النحل حشرات طائرة تنتمي إلى رتبة غشائيات الأجنحة، ويتميز بجسمه الصغير وأجنحته ووجود شعيرات تساعد بعض أنواعه على جمع حبوب اللقاح.</p>
+          <ul class="check-list">
+            <li>يعيش كثير من أنواع النحل في مجموعات.</li>
+            <li>يتغذى على رحيق الأزهار وحبوب اللقاح.</li>
+            <li>يساعد في تلقيح النباتات.</li>
+            <li>ينتشر في بيئات مختلفة حول العالم.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. Colony ============ -->
+    <section class="section" id="colony">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">أنواع النحل · The Bee Colony</span>
+          <h2 class="section-title">مملكة الخلية <span class="accent-text">وأنواع النحل</span></h2>
+          <p class="section-lead">تتكون مستعمرة نحل العسل من ثلاثة أنواع رئيسية، لكل منها دور واضح في حياة الخلية.</p>
+        </div>
+
+        <div class="card-grid card-grid--3">
+          <article class="role-card role-card--queen reveal">
+            <div class="role-icon" aria-hidden="true">👑</div>
+            <h3>الملكة</h3>
+            <span class="role-en">Queen Bee</span>
+            <ul>
+              <li>الأنثى الأساسية المسؤولة عن وضع البيض.</li>
+              <li>توجد عادة ملكة واحدة في المستعمرة.</li>
+            </ul>
+          </article>
+
+          <article class="role-card role-card--worker reveal">
+            <div class="role-icon" aria-hidden="true">🐝</div>
+            <h3>العاملات</h3>
+            <span class="role-en">Worker Bees</span>
+            <ul>
+              <li>إناث تجمع الرحيق وحبوب اللقاح.</li>
+              <li>تنظف الخلية وتعتني بالصغار.</li>
+              <li>تساعد في حماية المستعمرة.</li>
+            </ul>
+          </article>
+
+          <article class="role-card role-card--drone reveal">
+            <div class="role-icon" aria-hidden="true">🛡️</div>
+            <h3>الذكور</h3>
+            <span class="role-en">Drones</span>
+            <ul>
+              <li>وظيفتها الأساسية التزاوج مع الملكة.</li>
+              <li>تختلف عن الشغالات في الشكل والوظيفة.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. Life cycle ============ -->
+    <section class="section section--tint" id="lifecycle">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">دورة حياة النحلة · Life Cycle</span>
+          <h2 class="section-title">من بيضة إلى نحلة <span class="accent-text">بالغة</span></h2>
+          <p class="section-lead">تمر النحلة بأربع مراحل أساسية خلال نموها، تتكامل في كل منها أعضاء جسمها.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">🥚</div>
+            <h3>البيضة</h3>
+            <span class="step-en">Egg</span>
+            <p>تبدأ حياة النحلة داخل البيضة التي تضعها الملكة في العيون الشمعية.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">🐛</div>
+            <h3>اليرقة</h3>
+            <span class="step-en">Larva</span>
+            <p>تخرج اليرقة وتتغذى وتنمو، وتعتني بها العاملات طوال هذه المرحلة.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">🕸️</div>
+            <h3>العذراء</h3>
+            <span class="step-en">Pupa</span>
+            <p>تبدأ أعضاء جسم النحلة بالنمو والتطور داخل العين الشمعي المغلق.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">🐝</div>
+            <h3>النحلة البالغة</h3>
+            <span class="step-en">Adult</span>
+            <p>تخرج نحلة مكتملة النمو لتبدأ العمل داخل الخلية وخارجها.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. How bees make honey ============ -->
+    <section class="section" id="honey">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">صناعة العسل · How Do Bees Make Honey?</span>
+          <h2 class="section-title">كيف يصنع النحل <span class="accent-text">العسل؟</span></h2>
+          <p class="section-lead">يمر إنتاج العسل بعدة خطوات دقيقة، من زهرة إلى عين سداسية في قرص شمعي.</p>
+        </div>
+
+        <div class="process">
+          <article class="process-item reveal">
+            <h3>جمع الرحيق</h3>
+            <p>تجمع النحلات رحيق الأزهار.</p>
+          </article>
+          <article class="process-item reveal">
+            <h3>النقل إلى الخلية</h3>
+            <p>تنقل الرحيق إلى الداخل.</p>
+          </article>
+          <article class="process-item reveal">
+            <h3>المعالجة والتجفيف</h3>
+            <p>تعالجه إنزيمات النحل وتساعد حركة أجنحته على تقليل الماء فيه.</p>
+          </article>
+          <article class="process-item reveal">
+            <h3>التخزين</h3>
+            <p>يُخزّن العسل في العيون السداسية داخل الأقراص الشمعية.</p>
+          </article>
+        </div>
+
+        <div class="banner-image reveal">
+          <img src="assets/img/honey-flow.jpg" alt="أقراص العسل الشمعية في الخلية" loading="lazy" width="1200" height="675">
+          <div class="banner-caption">
+            <h3>من رحيق الأزهار إلى عسلٍ ذهبي</h3>
+            <p>كل لون من ألوان العسل يعكس نوع الزهرة التي زارها النحل.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. Benefits of honey ============ -->
+    <section class="section section--tint" id="benefits">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">فوائد العسل · Benefits of Honey</span>
+          <h2 class="section-title">فوائد <span class="accent-text">العسل</span></h2>
+          <p class="section-lead">العسل غذاء طبيعي ينتجه النحل من رحيق الأزهار، ويتميز بمذاقه الحلو واحتوائه على مجموعة من المركبات الغذائية المفيدة.</p>
+        </div>
+
+        <div class="card-grid card-grid--benefits">
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">⚡</div>
+            <h3>مصدر للطاقة</h3>
+            <p>يحتوي العسل على سكريات طبيعية تمد الجسم بالطاقة.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🌿</div>
+            <h3>تهدئة السعال</h3>
+            <p>قد يساعد العسل على تخفيف السعال، خاصةً عند الإصابة بنزلات البرد.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🛡️</div>
+            <h3>مضادات الأكسدة</h3>
+            <p>يحتوي على مركبات تساعد في حماية خلايا الجسم من الإجهاد التأكسدي.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🦠</div>
+            <h3>خصائص مضادة للميكروبات</h3>
+            <p>يمتلك خصائص تساعد على الحد من نمو بعض أنواع البكتيريا.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🩹</div>
+            <h3>العناية بالجروح</h3>
+            <p>يُستخدم العسل الطبي المعقم في بعض الضمادات للمساعدة في التئام الجروح.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🍯</div>
+            <h3>شفاء بإذن الله</h3>
+            <p>قال تعالى: ﴿فِيهِ شِفَاءٌ لِّلنَّاسِ﴾، ففيه منفعة وبركة للإنسان.</p>
+          </article>
+        </div>
+
+        <div class="note-box reveal">
+          <span class="note-icon" aria-hidden="true">⚠️</span>
+          <p><strong>معلومة مهمة:</strong> العسل غذاء مفيد، لكنه يحتوي على نسبة مرتفعة من السكريات، لذلك يُستهلك باعتدال، ولا يُعطى للأطفال دون عمر سنة.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. Bees in the Quran ============ -->
+    <section class="section" id="quran">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">النحل في القرآن الكريم · Bees in the Quran</span>
+          <h2 class="section-title">سورة <span class="accent-text">النحل</span> وآياتٌ تتحدث عن العسل</h2>
+          <p class="section-lead">ذكر الله سبحانه وتعالى النحل في القرآن الكريم، وخصص له سورة كاملة باسم سورة النحل، وهي السورة السادسة عشرة في القرآن الكريم.</p>
+        </div>
+
+        <div class="quran-layout">
+          <figure class="quran-image reveal">
+            <img src="assets/img/surah-al-nahl.jpg" alt="صورة من آيات سورة النحل في القرآن الكريم" loading="lazy" width="736" height="736">
+            <figcaption>صورة من آيات سورة النحل</figcaption>
+          </figure>
+
+          <div class="reveal">
+            <blockquote class="verse">﴿يَخْرُجُ مِن بُطُونِهَا شَرَابٌ مُّخْتَلِفٌ أَلْوَانُهُ فِيهِ شِفَاءٌ لِّلنَّاسِ﴾</blockquote>
+            <span class="verse-source">سورة النحل، الآية 69</span>
+
+            <h3 style="margin:0 0 6px; color:var(--text-strong);">ماذا نتعلم من الآيات؟</h3>
+            <p style="margin:0 0 18px; color:var(--muted); font-size:0.92rem;">يمكن تقسيم المعاني إلى أربعة معانٍ واضحة:</p>
+
+            <div class="quran-meanings">
+              <div class="meaning">
+                <span class="meaning-num">1</span>
+                <div><h4>بيوت النحل</h4><p>﴿أَنِ اتَّخِذِي مِنَ الْجِبَالِ بُيُوتًا وَمِنَ الشَّجَرِ وَمِمَّا يَعْرِشُونَ﴾ — أرشد الله النحل إلى اتخاذ بيوت في الجبال والأشجار وما يبنيه الناس.</p></div>
+              </div>
+              <div class="meaning">
+                <span class="meaning-num">2</span>
+                <div><h4>غذاء النحل</h4><p>﴿ثُمَّ كُلِي مِن كُلِّ الثَّمَرَاتِ﴾ — إشارة إلى غذاء النحل واعتماده على الأزهار والثمرات.</p></div>
+              </div>
+              <div class="meaning">
+                <span class="meaning-num">3</span>
+                <div><h4>إنتاج العسل</h4><p>﴿يَخْرُجُ مِن بُطُونِهَا شَرَابٌ مُّخْتَلِفٌ أَلْوَانُهُ﴾ — شراب يخرج من بطون النحل، وتتنوع ألوانه بحسب مصادر الرحيق.</p></div>
+              </div>
+              <div class="meaning">
+                <span class="meaning-num">4</span>
+                <div><h4>فوائد العسل</h4><p>﴿فِيهِ شِفَاءٌ لِّلنَّاسِ﴾ — بيان ما جعل الله في العسل من فوائد وخصائص نافعة للإنسان.</p></div>
+              </div>
+            </div>
+
+            <div class="quran-extra">
+              <h4>لماذا سُميت سورة النحل بهذا الاسم؟</h4>
+              <p>سُميت بهذا الاسم لورود ذكر النحل فيها، وبيان ما في خلقه من دلائل قدرة الله. وتدعونا الآيات إلى التأمل في دقة خلق النحل وطريقة حياته وما ينتج عنه من منافع، لندرك عظمة نعم الله علينا.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. Importance in the environment ============ -->
+    <section class="section env-section" id="environment">
+      <div class="container">
+        <div class="env-panel reveal">
+          <span class="eyebrow">النحل والبيئة · Bees &amp; the Environment</span>
+          <h2 class="section-title">أهمية النحل <span class="accent-text">في البيئة</span></h2>
+          <p class="section-lead">النحل من أهم الملقحات في الطبيعة، ولولاه لقلّت ثمار كثيرة وتعطلت سلاسل غذائية بأكملها.</p>
+          <div class="env-grid">
+            <div class="env-item"><span aria-hidden="true">🌸</span><div><h4>تلقيح النباتات</h4><p>ينقل حبوب اللقاح بين الأزهار، فيساعدها على إنتاج الثمار والبذور.</p></div></div>
+            <div class="env-item"><span aria-hidden="true">🌳</span><div><h4>الحفاظ على التنوع الحيوي</h4><p>يدعم نمو الأزهار والنباتات التي تعيش عليها كائنات أخرى.</p></div></div>
+            <div class="env-item"><span aria-hidden="true">⚖️</span><div><h4>التوازن البيئي</h4><p>يساهم في استمرار الدورة الطبيعية للحياة في الحدائق والبراري.</p></div></div>
+            <div class="env-item"><span aria-hidden="true">🍎</span><div><h4>الأمن الغذائي</h4><p>كثير من الفواكه والمحاصيل تعتمد على تلقيح النحل لتنمو.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. Amazing facts ============ -->
+    <section class="section section--tint" id="facts">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">هل تعلم؟ · Amazing Facts</span>
+          <h2 class="section-title">معلومات <span class="accent-text">مدهشة</span> عن النحل</h2>
+          <p class="section-lead">حقائق صغيرة تكشف مدى دقة هذا المخلوق العجيب.</p>
+        </div>
+
+        <div class="fact-grid">
+          <article class="fact-card reveal"><span class="fact-number">5</span><h3>عيون!</h3><p>للنحلة عينان مركبتان وثلاث عيون بسيطة تساعدها على الاستدلال بالضوء.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">24</span><h3>كم/ساعة</h3><p>يمكن للنحلة الطيران بسرعة تقارب 24 كيلومترًا في الساعة.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">35°</span><h3>درجة حرارة الخلية</h3><p>تحافظ العاملات على حرارة الخلية لتقارب 35 درجة مئوية لتربية الصغار.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">💃</span><h3>لغة الرقص</h3><p>ترقص النحلة العائدة لتخبر زميلاتها باتجاه الرحيق ومسافته.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">∞</span><h3>العسل لا يفسد</h3><p>عند تخزينه بشكل صحيح، يمكن أن يبقى العسل صالحًا لزمن طويل جدًا.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">2,000</span><h3>بيضة في اليوم</h3><p>قد تضع الملكة آلاف البيضات يوميًا في موسم النشاط.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. Protect the bees ============ -->
+    <section class="section" id="protect">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">حماية النحل · Protect the Bees</span>
+          <h2 class="section-title">كيف <span class="accent-text">نحافظ على النحل؟</span></h2>
+          <p class="section-lead">يمكن لكل منا أن يساهم بحماية النحل بخطوات بسيطة في حياته اليومية.</p>
+        </div>
+
+        <div class="tip-list">
+          <article class="tip reveal"><span class="tip-check">✓</span><div><h3>زراعة الأزهار</h3><p>ازرع أزهارًا ونباتات تجذب النحل وتوفر له الرحيق.</p></div></article>
+          <article class="tip reveal"><span class="tip-check">✓</span><div><h3>المساحات الخضراء</h3><p>حافظ على الحدائق والمساحات الخضراء في مدينتك.</p></div></article>
+          <article class="tip reveal"><span class="tip-check">✓</span><div><h3>تجنب المبيدات</h3><p>تجنب الاستخدام العشوائي للمبيدات التي تضر بالنحل.</p></div></article>
+          <article class="tip reveal"><span class="tip-check">✓</span><div><h3>حماية المواطن</h3><p>حافظ على البيئات الطبيعية التي يعيش فيها النحل.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. Conclusion ============ -->
+    <section class="section section--tint" id="conclusion">
+      <div class="container">
+        <div class="conclusion reveal">
+          <span class="bee-lg" aria-hidden="true">🐝</span>
+          <h2>النحل صغير الحجم، عظيم الأثر!</h2>
+          <p>تعرفنا في رحلتنا على عالم النحل، وطريقة حياته، وأهمية دوره في تلقيح النباتات وإنتاج العسل. لنتذكر دائمًا أن حماية النحل تعني المساهمة في حماية الطبيعة والحفاظ على توازنها.</p>
+          <p class="closing-quote">وفي ختام رحلتنا في عالم النحل، اكتشفنا أن هذا المخلوق الصغير يحمل أسرارًا عظيمة، وأن في خلقه دليلًا على عظمة الخالق وإبداعه. وقد دعانا القرآن الكريم إلى التأمل في النحل وما يقدمه من منافع، لندرك عظمة نعم الله علينا، ونحرص على المحافظة على مخلوقاته.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Quiz ============ -->
+    <section class="section" id="quiz">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">اختبر معلوماتك · Test Your Knowledge</span>
+          <h2 class="section-title">هل تذكّرت <span class="accent-text">حكاية الخلية؟</span></h2>
+          <p class="section-lead">ثلاثة أسئلة قصيرة، اختر الإجابة الصحيحة من الخيارات.</p>
+        </div>
+
+        <div class="quiz-wrap reveal">
+          <div class="quiz-progress">
+            <strong>درجتك</strong>
+            <span class="score-pill" id="quiz-score">0 / 3</span>
+            <div class="progress-track"><div class="progress-fill" id="quiz-progress-fill"></div></div>
+          </div>
+
+          <div class="quiz-card"
+               data-good="أحسنت! إجابتك صحيحة 🐝"
+               data-bad="ليست الإجابة الصحيحة."
+               data-answer="الإجابة الصحيحة: ب) سورة النحل">
+            <div class="quiz-question"><span class="q-index">1</span><h3>ما اسم السورة التي ورد فيها ذكر النحل؟</h3></div>
+            <div class="options">
+              <button class="q-option" type="button" data-correct="false">أ) سورة النمل</button>
+              <button class="q-option" type="button" data-correct="true">ب) سورة النحل</button>
+              <button class="q-option" type="button" data-correct="false">ج) سورة الفيل</button>
+            </div>
+            <div class="q-feedback" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="quiz-card"
+               data-good="ممتاز! الملكة تضع البيض 🐝"
+               data-bad="ليست الإجابة الصحيحة."
+               data-answer="الإجابة الصحيحة: ج) وضع البيض">
+            <div class="quiz-question"><span class="q-index">2</span><h3>ما الوظيفة الأساسية لملكة النحل داخل الخلية؟</h3></div>
+            <div class="options">
+              <button class="q-option" type="button" data-correct="false">أ) جمع الرحيق</button>
+              <button class="q-option" type="button" data-correct="false">ب) حماية الخلية</button>
+              <button class="q-option" type="button" data-correct="true">ج) وضع البيض</button>
+            </div>
+            <div class="q-feedback" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="quiz-card"
+               data-good="رائع! الرحيق هو المادة الأساسية للعسل 🍯"
+               data-bad="ليست الإجابة الصحيحة."
+               data-answer="الإجابة الصحيحة: أ) الرحيق">
+            <div class="quiz-question"><span class="q-index">3</span><h3>ما اسم المادة التي يجمعها النحل من الأزهار لصناعة العسل؟</h3></div>
+            <div class="options">
+              <button class="q-option" type="button" data-correct="true">أ) الرحيق</button>
+              <button class="q-option" type="button" data-correct="false">ب) الماء</button>
+              <button class="q-option" type="button" data-correct="false">ج) حبوب اللقاح فقط</button>
+            </div>
+            <div class="q-feedback" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="quiz-finish" id="quiz-finish">
+            <h3>أحسنت! 🎉</h3>
+            <p>لقد أكملت رحلتك في عالم النحل، وتعرّفت على أسرار مخلوق صغير يحمل في حياته الكثير من العجائب 🐝<br>درجتك: <strong id="quiz-finish-score">0 / 3</strong></p>
+            <button class="btn btn--primary" id="quiz-reset" type="button">إعادة الاختبار</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#hero"><span class="brand-mark" aria-hidden="true">🐝</span><span class="brand-name">حكاية <em>خلية</em></span></a>
+          <p>رحلة بين أجنحة النحل وأسرار الطبيعة — موقع تقديمي يجمع بين المعلومة والصور والتأمل في خلق الله.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>أقسام الرحلة</h4>
+            <a href="#about">ما هو النحل؟</a>
+            <a href="#colony">مملكة الخلية</a>
+            <a href="#lifecycle">دورة الحياة</a>
+            <a href="#honey">صناعة العسل</a>
+          </div>
+          <div class="footer-col">
+            <h4>استكشف المزيد</h4>
+            <a href="#benefits">فوائد العسل</a>
+            <a href="#quran">النحل في القرآن</a>
+            <a href="#environment">أهمية النحل</a>
+            <a href="#facts">معلومات مدهشة</a>
+            <a href="#protect">كيف نحافظ عليه؟</a>
+          </div>
+          <div class="footer-col">
+            <h4>اللغة</h4>
+            <a href="en.html" lang="en" hreflang="en">English Version →</a>
+            <a href="#quiz">اختبر معلوماتك</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="footer-year">2026</span> حكاية خلية</span>
+        <span>🌿 «وفي خلقه آياتٌ للمتأملين»</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="العودة إلى أعلى الصفحة">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

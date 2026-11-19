@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Bee Hive Story — A Journey into the World of Bees. Discover what bees are, their colony, life cycle, how honey is made, its benefits, and bees in the Quran.">
+  <meta name="theme-color" content="#fffaf0">
+  <title>The Bee Hive Story | A Journey into the World of Bees</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('bee-story-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (e) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ============ Header ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="The Bee Hive Story — Home">
+        <span class="brand-mark" aria-hidden="true">🐝</span>
+        <span class="brand-name">The Bee <em>Hive Story</em></span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#hero">Home</a>
+        <a href="#about">What Are Bees?</a>
+        <a href="#colony">The Colony</a>
+        <a href="#lifecycle">Life Cycle</a>
+        <a href="#honey">Making Honey</a>
+        <a href="#quran">Bees in the Quran</a>
+        <a href="#quiz">Test Yourself</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="lang-switch" href="index.html" lang="ar" hreflang="ar" aria-label="التبديل إلى العربية">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5M11 18l-6-6 6-6"/>
+          </svg>
+          العربية
+        </a>
+        <button class="icon-btn" id="theme-toggle" type="button"
+                aria-label="Switch to dark mode" aria-pressed="false"
+                data-label-light="Switch to light mode" data-label-dark="Switch to dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 14.4A8.6 8.6 0 0 1 9.6 3.5a8.6 8.6 0 1 0 10.9 10.9Z"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4-1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 1. Hero ============ -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">The Bee Hive Story <span class="bee-dot">✦</span> The World of Bees</span>
+
+          <h1 class="hero-title">
+            The Bee Hive Story
+            <span class="accent-text">«A Journey Among Bee Wings &amp; Nature's Secrets»</span>
+            <span class="hero-subtitle">A Journey into the World of Bees</span>
+          </h1>
+
+          <p class="hero-lead">Small creatures with a giant role in nature</p>
+          <p>Bees don't just make honey — they help plants reproduce and keep the environment in balance. Let's discover the secrets of this amazing world together!</p>
+
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="#about">
+              Start the journey
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#quiz">Test your knowledge</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat"><strong>20,000+</strong><span>bee species worldwide</span></div>
+            <div class="stat"><strong>3</strong><span>types inside the hive</span></div>
+            <div class="stat"><strong>4</strong><span>stages of growth</span></div>
+          </div>
+        </div>
+
+        <div class="hero-art reveal" aria-label="A bee on a flower">
+          <div class="hero-frame">
+            <img src="assets/img/bee-hero.jpg" alt="A bee collecting nectar from a flower" width="3840" height="2263">
+          </div>
+          <div class="hero-float hero-float--one">
+            <img src="assets/img/honey-flow.jpg" alt="A beehive with honeycombs" loading="lazy">
+          </div>
+          <div class="hero-float hero-float--two">
+            <img src="assets/img/bees.jpg" alt="Bees at the edge of a hive" loading="lazy">
+          </div>
+          <div class="hero-stamp" aria-hidden="true"><span>🐝</span>Bee<br>World</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="intro-banner reveal">
+          <p><strong>The Bee Hive Story...</strong> a short journey into the world of a tiny creature with great secrets — from the moment it leaves the egg to the making of honey, from pollinating flowers to what the Quran says about its creation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. What are bees? ============ -->
+    <section class="section section--tint" id="about">
+      <div class="container split">
+        <div class="split-visual reveal">
+          <div class="image-card">
+            <img src="assets/img/bee-hero.jpg" alt="A bee among flowers collecting pollen" loading="lazy" width="3840" height="2263">
+          </div>
+        </div>
+        <div class="split-copy reveal">
+          <span class="eyebrow">What Are Bees?</span>
+          <h2 class="section-title">What are bees?</h2>
+          <p class="section-lead">Bees are flying insects that belong to the order Hymenoptera. They have small bodies, wings, and hairs that help some species collect pollen.</p>
+          <ul class="check-list">
+            <li>Many bee species live together in groups.</li>
+            <li>They feed on flower nectar and pollen.</li>
+            <li>They help pollinate plants.</li>
+            <li>They live in many different environments around the world.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. Colony ============ -->
+    <section class="section" id="colony">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">The Bee Colony</span>
+          <h2 class="section-title">Inside the <span class="accent-text">Bee Colony</span></h2>
+          <p class="section-lead">A honey bee colony is made up of three main types, each with a clear role in the life of the hive.</p>
+        </div>
+
+        <div class="card-grid card-grid--3">
+          <article class="role-card role-card--queen reveal">
+            <div class="role-icon" aria-hidden="true">👑</div>
+            <h3>The Queen</h3>
+            <span class="role-en">Queen Bee</span>
+            <ul>
+              <li>The main female responsible for laying eggs.</li>
+              <li>There is usually one queen in a colony.</li>
+            </ul>
+          </article>
+
+          <article class="role-card role-card--worker reveal">
+            <div class="role-icon" aria-hidden="true">🐝</div>
+            <h3>The Workers</h3>
+            <span class="role-en">Worker Bees</span>
+            <ul>
+              <li>Females that collect nectar and pollen.</li>
+              <li>They clean the hive and care for the young.</li>
+              <li>They help defend the colony.</li>
+            </ul>
+          </article>
+
+          <article class="role-card role-card--drone reveal">
+            <div class="role-icon" aria-hidden="true">🛡️</div>
+            <h3>The Drones</h3>
+            <span class="role-en">Drones</span>
+            <ul>
+              <li>Their main role is to mate with the queen.</li>
+              <li>They differ from workers in shape and function.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. Life cycle ============ -->
+    <section class="section section--tint" id="lifecycle">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Life Cycle</span>
+          <h2 class="section-title">From egg to <span class="accent-text">adult bee</span></h2>
+          <p class="section-lead">A bee passes through four main stages as it grows, and its body parts develop in each one.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">🥚</div>
+            <h3>Egg</h3>
+            <span class="step-en">Egg</span>
+            <p>Life begins inside the egg laid by the queen in a wax cell.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">🐛</div>
+            <h3>Larva</h3>
+            <span class="step-en">Larva</span>
+            <p>The larva hatches, feeds and grows while worker bees care for it.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">🕸️</div>
+            <h3>Pupa</h3>
+            <span class="step-en">Pupa</span>
+            <p>Inside the sealed wax cell, the bee's organs begin to develop.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-num" aria-hidden="true">🐝</div>
+            <h3>Adult bee</h3>
+            <span class="step-en">Adult</span>
+            <p>A fully grown bee emerges to work inside and outside the hive.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. How bees make honey ============ -->
+    <section class="section" id="honey">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How Do Bees Make Honey?</span>
+          <h2 class="section-title">How bees <span class="accent-text">make honey</span></h2>
+          <p class="section-lead">Honey production goes through several precise steps — from a flower to a hexagonal wax cell.</p>
+        </div>
+
+        <div class="process">
+          <article class="process-item reveal">
+            <h3>Collecting nectar</h3>
+            <p>Bees gather nectar from flowers.</p>
+          </article>
+          <article class="process-item reveal">
+            <h3>Carrying it home</h3>
+            <p>They carry the nectar back to the hive.</p>
+          </article>
+          <article class="process-item reveal">
+            <h3>Processing &amp; drying</h3>
+            <p>Bee enzymes process it, and wing movement reduces its water content.</p>
+          </article>
+          <article class="process-item reveal">
+            <h3>Storage</h3>
+            <p>Honey is stored in hexagonal cells inside the honeycombs.</p>
+          </article>
+        </div>
+
+        <div class="banner-image reveal">
+          <img src="assets/img/honey-flow.jpg" alt="Wax honeycombs inside a beehive" loading="lazy" width="1200" height="675">
+          <div class="banner-caption">
+            <h3>From flower nectar to golden honey</h3>
+            <p>Every colour of honey reflects the flowers the bees visited.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. Benefits of honey ============ -->
+    <section class="section section--tint" id="benefits">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Benefits of Honey</span>
+          <h2 class="section-title">The benefits of <span class="accent-text">honey</span></h2>
+          <p class="section-lead">Honey is a natural food made by bees from flower nectar. It has a sweet taste and contains a range of useful compounds.</p>
+        </div>
+
+        <div class="card-grid card-grid--benefits">
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">⚡</div>
+            <h3>A source of energy</h3>
+            <p>Honey contains natural sugars that give the body energy.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🌿</div>
+            <h3>Calming coughs</h3>
+            <p>It may help ease coughing, especially with colds.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🛡️</div>
+            <h3>Antioxidants</h3>
+            <p>It contains compounds that help protect cells from oxidative stress.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🦠</div>
+            <h3>Antimicrobial properties</h3>
+            <p>It has properties that help limit the growth of some bacteria.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🩹</div>
+            <h3>Wound care</h3>
+            <p>Medical-grade, sterilised honey is used in some dressings to help wounds heal.</p>
+          </article>
+          <article class="benefit-card reveal">
+            <div class="benefit-icon" aria-hidden="true">🍯</div>
+            <h3>Healing, by God's will</h3>
+            <p>The Quran says: “There is healing for people in it.”</p>
+          </article>
+        </div>
+
+        <div class="note-box reveal">
+          <span class="note-icon" aria-hidden="true">⚠️</span>
+          <p><strong>Important note:</strong> Honey is beneficial, but it is high in sugar — enjoy it in moderation, and never give it to children under one year of age.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. Bees in the Quran ============ -->
+    <section class="section" id="quran">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Bees in the Quran</span>
+          <h2 class="section-title">Surah <span class="accent-text">An-Nahl</span> and the verses about honey</h2>
+          <p class="section-lead">God Almighty mentioned bees in the Quran and devoted a whole chapter to them: Surah An-Nahl, the sixteenth chapter.</p>
+        </div>
+
+        <div class="quran-layout">
+          <figure class="quran-image reveal">
+            <img src="assets/img/surah-al-nahl.jpg" alt="An image of verses from Surah An-Nahl in the Quran" loading="lazy" width="736" height="736">
+            <figcaption>Verses from Surah An-Nahl</figcaption>
+          </figure>
+
+          <div class="reveal">
+            <blockquote class="verse">﴿يَخْرُجُ مِن بُطُونِهَا شَرَابٌ مُّخْتَلِفٌ أَلْوَانُهُ فِيهِ شِفَاءٌ لِّلنَّاسِ﴾</blockquote>
+            <p style="margin:-4px 0 8px; color:var(--muted); font-size:0.9rem; font-style:italic;">“From their bellies comes a drink of varying colours, wherein is healing for people.”</p>
+            <span class="verse-source">Surah An-Nahl, verse 69</span>
+
+            <h3 style="margin:0 0 6px; color:var(--text-strong);">What do we learn from the verses?</h3>
+            <p style="margin:0 0 18px; color:var(--muted); font-size:0.92rem;">The meanings can be grouped into four clear ideas:</p>
+
+            <div class="quran-meanings">
+              <div class="meaning">
+                <span class="meaning-num">1</span>
+                <div><h4>The homes of bees</h4><p>“Take for yourselves dwellings in the mountains, in the trees, and in what they build” — God guides bees to make homes in mountains, trees and human-made places.</p></div>
+              </div>
+              <div class="meaning">
+                <span class="meaning-num">2</span>
+                <div><h4>The food of bees</h4><p>“Then eat of all the fruits” — a reference to their food and dependence on flowers and fruits.</p></div>
+              </div>
+              <div class="meaning">
+                <span class="meaning-num">3</span>
+                <div><h4>The making of honey</h4><p>“From their bellies comes a drink of varying colours” — a drink that comes from bees, whose colours vary with the nectar sources.</p></div>
+              </div>
+              <div class="meaning">
+                <span class="meaning-num">4</span>
+                <div><h4>The benefits of honey</h4><p>“Therein is healing for people” — showing the benefits and useful properties God placed in honey.</p></div>
+              </div>
+            </div>
+
+            <div class="quran-extra">
+              <h4>Why is the chapter named “An-Nahl” (The Bees)?</h4>
+              <p>It was given this name because bees are mentioned in it and because their creation shows signs of God's power. The verses invite us to reflect on the precision of the bee's creation, its way of life and its benefits, so we recognise the greatness of God's blessings and care for His creatures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. Importance in the environment ============ -->
+    <section class="section env-section" id="environment">
+      <div class="container">
+        <div class="env-panel reveal">
+          <span class="eyebrow">Bees &amp; the Environment</span>
+          <h2 class="section-title">The importance of bees <span class="accent-text">to the environment</span></h2>
+          <p class="section-lead">Bees are among nature's most important pollinators. Without them, many fruits would disappear and whole food chains would be disrupted.</p>
+          <div class="env-grid">
+            <div class="env-item"><span aria-hidden="true">🌸</span><div><h4>Pollinating plants</h4><p>They carry pollen between flowers, helping them produce fruit and seeds.</p></div></div>
+            <div class="env-item"><span aria-hidden="true">🌳</span><div><h4>Biodiversity</h4><p>They support flowers and plants that other living creatures depend on.</p></div></div>
+            <div class="env-item"><span aria-hidden="true">⚖️</span><div><h4>Environmental balance</h4><p>They keep the natural cycle of life going in gardens and the wild.</p></div></div>
+            <div class="env-item"><span aria-hidden="true">🍎</span><div><h4>Food security</h4><p>Many fruits and crops rely on bee pollination to grow.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. Amazing facts ============ -->
+    <section class="section section--tint" id="facts">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Amazing Facts</span>
+          <h2 class="section-title"><span class="accent-text">Amazing</span> facts about bees</h2>
+          <p class="section-lead">Small facts that reveal just how remarkable this creature is.</p>
+        </div>
+
+        <div class="fact-grid">
+          <article class="fact-card reveal"><span class="fact-number">5</span><h3>Eyes!</h3><p>A bee has two compound eyes and three simple eyes that help it sense light.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">24</span><h3>km / hour</h3><p>A bee can fly at speeds of around 24 kilometres per hour.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">35°</span><h3>Hive temperature</h3><p>Workers keep the hive close to 35°C to raise the young.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">💃</span><h3>The waggle dance</h3><p>A returning bee dances to tell its sisters where nectar is and how far away.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">∞</span><h3>Honey doesn't spoil</h3><p>When stored properly, honey can stay usable for a very long time.</p></article>
+          <article class="fact-card reveal"><span class="fact-number">2,000</span><h3>Eggs a day</h3><p>A queen can lay thousands of eggs a day during the active season.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 10. Protect the bees ============ -->
+    <section class="section" id="protect">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Protect the Bees</span>
+          <h2 class="section-title">How can we <span class="accent-text">protect bees?</span></h2>
+          <p class="section-lead">Each of us can help protect bees with simple everyday steps.</p>
+        </div>
+
+        <div class="tip-list">
+          <article class="tip reveal"><span class="tip-check">✓</span><div><h3>Plant flowers</h3><p>Grow flowers and plants that attract bees and provide nectar.</p></div></article>
+          <article class="tip reveal"><span class="tip-check">✓</span><div><h3>Keep green spaces</h3><p>Protect gardens and green areas in your city.</p></div></article>
+          <article class="tip reveal"><span class="tip-check">✓</span><div><h3>Avoid pesticides</h3><p>Don't use pesticides carelessly — they harm bees.</p></div></article>
+          <article class="tip reveal"><span class="tip-check">✓</span><div><h3>Protect habitats</h3><p>Preserve the natural environments where bees live.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. Conclusion ============ -->
+    <section class="section section--tint" id="conclusion">
+      <div class="container">
+        <div class="conclusion reveal">
+          <span class="bee-lg" aria-hidden="true">🐝</span>
+          <h2>Small in size, immense in impact!</h2>
+          <p>On our journey we met the world of bees, learned how they live, and saw their vital role in pollinating plants and producing honey. Let us always remember: protecting bees means helping protect nature and its balance.</p>
+          <p class="closing-quote">As our journey into the world of bees ends, we discover that this small creature carries great secrets, and that in its creation lies a sign of the Creator's greatness and artistry. The Quran invites us to reflect on bees and the benefits they bring, so that we recognise the magnitude of God's blessings and strive to care for His creation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Quiz ============ -->
+    <section class="section" id="quiz">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Test Your Knowledge</span>
+          <h2 class="section-title">Do you remember <span class="accent-text">the hive story?</span></h2>
+          <p class="section-lead">Three quick questions — pick the correct answer.</p>
+        </div>
+
+        <div class="quiz-wrap reveal">
+          <div class="quiz-progress">
+            <strong>Your score</strong>
+            <span class="score-pill" id="quiz-score">0 / 3</span>
+            <div class="progress-track"><div class="progress-fill" id="quiz-progress-fill"></div></div>
+          </div>
+
+          <div class="quiz-card"
+               data-good="Well done! That's correct 🐝"
+               data-bad="Not quite."
+               data-answer="Correct answer: B) Surah An-Nahl">
+            <div class="quiz-question"><span class="q-index">1</span><h3>Which chapter of the Quran mentions bees?</h3></div>
+            <div class="options">
+              <button class="q-option" type="button" data-correct="false">A) Surah An-Naml</button>
+              <button class="q-option" type="button" data-correct="true">B) Surah An-Nahl</button>
+              <button class="q-option" type="button" data-correct="false">C) Surah Al-Fil</button>
+            </div>
+            <div class="q-feedback" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="quiz-card"
+               data-good="Excellent! The queen lays the eggs 🐝"
+               data-bad="Not quite."
+               data-answer="Correct answer: C) Laying eggs">
+            <div class="quiz-question"><span class="q-index">2</span><h3>What is the queen bee's main job in the hive?</h3></div>
+            <div class="options">
+              <button class="q-option" type="button" data-correct="false">A) Collecting nectar</button>
+              <button class="q-option" type="button" data-correct="false">B) Defending the hive</button>
+              <button class="q-option" type="button" data-correct="true">C) Laying eggs</button>
+            </div>
+            <div class="q-feedback" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="quiz-card"
+               data-good="Great! Nectar is the main ingredient of honey 🍯"
+               data-bad="Not quite."
+               data-answer="Correct answer: A) Nectar">
+            <div class="quiz-question"><span class="q-index">3</span><h3>What do bees collect from flowers to make honey?</h3></div>
+            <div class="options">
+              <button class="q-option" type="button" data-correct="true">A) Nectar</button>
+              <button class="q-option" type="button" data-correct="false">B) Water</button>
+              <button class="q-option" type="button" data-correct="false">C) Pollen only</button>
+            </div>
+            <div class="q-feedback" role="status" aria-live="polite"></div>
+          </div>
+
+          <div class="quiz-finish" id="quiz-finish">
+            <h3>Well done! 🎉</h3>
+            <p>You've completed your journey into the world of bees and discovered the wonders of a tiny creature full of marvellous secrets 🐝<br>Your score: <strong id="quiz-finish-score">0 / 3</strong></p>
+            <button class="btn btn--primary" id="quiz-reset" type="button">Try again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#hero"><span class="brand-mark" aria-hidden="true">🐝</span><span class="brand-name">The Bee <em>Hive Story</em></span></a>
+          <p>A journey among bee wings and nature's secrets — a presentation site combining information, images and reflection on God's creation.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>The journey</h4>
+            <a href="#about">What are bees?</a>
+            <a href="#colony">The colony</a>
+            <a href="#lifecycle">Life cycle</a>
+            <a href="#honey">Making honey</a>
+          </div>
+          <div class="footer-col">
+            <h4>Explore more</h4>
+            <a href="#benefits">Benefits of honey</a>
+            <a href="#quran">Bees in the Quran</a>
+            <a href="#environment">Importance of bees</a>
+            <a href="#facts">Amazing facts</a>
+            <a href="#protect">How to protect them</a>
+          </div>
+          <div class="footer-col">
+            <h4>Language</h4>
+            <a href="index.html" lang="ar" hreflang="ar">النسخة العربية ←</a>
+            <a href="#quiz">Test your knowledge</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="footer-year">2026</span> The Bee Hive Story</span>
+        <span>🌿 “In His creation are signs for those who reflect”</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
