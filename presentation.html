@@ -151,7 +151,7 @@
       .nav-btn--next { inset-inline-end: 14px; }
     }
 
-    /* الشريحة ١: النص على اليمين والصورتان على اليسار */
+    /* الشريحة ١: النص على اليمين والصورتان على اليسار بالشكل والأحجام الأصلية */
     .deck #hero .hero-grid { grid-template-columns: minmax(0, 1fr); }
     .deck #hero .hero-copy {
       display: grid;
@@ -160,7 +160,14 @@
       align-items: center;
     }
     .deck #hero .hero-copy > :not(.hero-art) { grid-column: 1; }
-    .deck #hero .hero-copy > .hero-art { grid-column: 2; min-height: 320px; max-width: none; margin-inline: 0; }
+    .deck #hero .hero-copy > .hero-art {
+      grid-column: 2;
+      grid-row: 1 / span 5;
+      align-self: center;
+      min-height: 320px;
+      max-width: none;
+      margin-inline: 0;
+    }
 
     /* الشريحة ٩: تصغير صور البطاقات */
     .deck #facts .fact-card .fact-media { height: 96px; aspect-ratio: auto; }
