@@ -204,8 +204,17 @@
     }
     .deck #facts .fact-card p {
       color: rgba(255, 255, 255, .94);
+      font-size: .94rem;
+      line-height: 1.87;
       text-shadow: 0 1px 8px rgba(0, 0, 0, .85);
     }
+
+    /* الشريحة ١١: تصغير البنر والنص قليلًا */
+    .deck #conclusion .conclusion { padding: 40px; }
+    .deck #conclusion .bee-lg { font-size: 2.6rem; margin-bottom: 8px; }
+    .deck #conclusion h2 { font-size: clamp(1.7rem, 3.6vw, 2.7rem); margin-bottom: 14px; }
+    .deck #conclusion p { font-size: 1rem; }
+    .deck #conclusion .closing-quote { margin-top: 20px; padding-top: 18px; font-size: .94rem; }
 
     /* ---------- الطباعة: كل شريحة صفحة مستقلة ---------- */
     @page { size: A4 landscape; margin: 0; }
