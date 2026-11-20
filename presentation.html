@@ -151,6 +151,20 @@
       .nav-btn--next { inset-inline-end: 14px; }
     }
 
+    /* الشريحة ١: النص على اليمين والصورتان على اليسار */
+    .deck #hero .hero-grid { grid-template-columns: minmax(0, 1fr); }
+    .deck #hero .hero-copy {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+      gap: clamp(20px, 4vw, 60px);
+      align-items: center;
+    }
+    .deck #hero .hero-copy > :not(.hero-art) { grid-column: 1; }
+    .deck #hero .hero-copy > .hero-art { grid-column: 2; min-height: 320px; max-width: none; margin-inline: 0; }
+
+    /* الشريحة ٩: تصغير صور البطاقات */
+    .deck #facts .fact-card .fact-media { height: 96px; aspect-ratio: auto; }
+
     /* ---------- الطباعة: كل شريحة صفحة مستقلة ---------- */
     @page { size: A4 landscape; margin: 0; }
     @media print {
