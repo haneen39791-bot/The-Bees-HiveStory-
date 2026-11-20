@@ -18,9 +18,9 @@
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem('bee-story-theme');
-        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.dataset.theme = theme;
+        var saved = localStorage.getItem('bee-story-theme-v2');
+        localStorage.removeItem('bee-story-theme');
+        document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
       } catch (e) {
         document.documentElement.dataset.theme = 'light';
       }
@@ -574,7 +574,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
   </button>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=2"></script>
   <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

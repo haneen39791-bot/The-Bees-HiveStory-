@@ -12,7 +12,7 @@
 
   /* ---------------- Theme ---------------- */
   const themeToggle = $("#theme-toggle");
-  const STORAGE_KEY = "bee-story-theme";
+  const STORAGE_KEY = "bee-story-theme-v2";
 
   function syncThemeButton() {
     if (!themeToggle) return;

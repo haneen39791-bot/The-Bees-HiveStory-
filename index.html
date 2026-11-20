@@ -20,9 +20,9 @@
   <script>
     (function () {
       try {
-        var saved = localStorage.getItem('bee-story-theme');
-        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.dataset.theme = theme;
+        var saved = localStorage.getItem('bee-story-theme-v2');
+        localStorage.removeItem('bee-story-theme');
+        document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
       } catch (e) {
         document.documentElement.dataset.theme = 'light';
       }
@@ -614,10 +614,10 @@
             <h2>النحل صغير الحجم، عظيم الأثر!</h2>
             <p>تعرفنا في رحلتنا على عالم النحل، وطريقة حياته، وأهمية دوره في تلقيح النباتات وإنتاج العسل. لنتذكر دائمًا أن حماية النحل تعني المساهمة في حماية الطبيعة والحفاظ على توازنها.</p>
             <p class="closing-quote">وفي ختام رحلتنا في عالم النحل، اكتشفنا أن هذا المخلوق الصغير يحمل أسرارًا عظيمة، وأن في خلقه دليلًا على عظمة الخالق وإبداعه. وقد دعانا القرآن الكريم إلى التأمل في النحل وما يقدمه من منافع، لندرك عظمة نعم الله علينا، ونحرص على المحافظة على مخلوقاته.</p>
-          <p>عمل الطالبة: حنين خالد منصور زيد 1567781</p>
-          <p>مشروع مادة بناء و نشر المواقع بالذكاء الإصطناعي- عام 1448هـ </p>
-          <p>دكتور المادة :د.بسام عبدالله مسمار-بإشراف المشرفة:أ.تسنيم القرشي</p>
-        </div>
+            <p>عمل الطالبة: حنين خالد منصور زيد 1567781</p>
+            <p>مشروع مادة بناء و نشر المواقع بالذكاء الإصطناعي- عام 1448هـ </p>
+            <p>دكتور المادة :د.بسام عبدالله مسمار-بإشراف المشرفة:أ.تسنيم القرشي</p>
+          </div>
         </div>
       </div>
     </section>
@@ -697,7 +697,7 @@
 
   <div class="progress" aria-hidden="true"><div class="progress__fill" id="progressFill"></div></div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=2"></script>
   <script>
     (function () {
       var slides = Array.prototype.slice.call(document.querySelectorAll('.deck > .slide'));
