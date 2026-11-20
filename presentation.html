@@ -3,38 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="عرض تقديمي: حكاية خلية — رحلة بين أجنحة النحل وأسرار الطبيعة">
+  <meta name="description" content="حكاية خلية — رحلة بين أجنحة النحل وأسرار الطبيعة. تعرف على النحل، مملكته، دورة حياته، صناعة العسل، فوائده، ومكانته في القرآن الكريم.">
+  <meta name="theme-color" content="#fffaf0">
+  <meta property="image" content="assets/img/logo.jpg">
+  <meta property="og:image" content="assets/img/logo.jpg">
   <title>حكاية خلية | العرض التقديمي</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- نفس تنسيقات الموقع بالضبط -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/img/logo.jpg">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('bee-story-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = theme;
+      } catch (e) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+
   <style>
-    :root {
-      --bg: #fffaf0;
-      --surface: #ffffff;
-      --ink: #241f12;
-      --muted: #7d745d;
-      --accent: #b47710;
-      --accent-strong: #8a5906;
-      --gold: #e6b63f;
-      --gold-soft: rgba(230, 182, 63, 0.18);
-      --green: #6f8f2f;
-      --green-soft: rgba(111, 143, 47, 0.12);
-      --line: rgba(69, 61, 41, 0.14);
-      --radius: 20px;
-      --shadow: 0 10px 30px rgba(69, 61, 41, 0.10);
-    }
+    /* ==========================================================================
+       طبقة العرض التقديمي فقط: كل قسم من index.html يصبح شريحة كاملة الشاشة.
+       التنسيق والنصوص والصور والخلفيات كلها قادمة من assets/css/style.css
+       ========================================================================== */
+    html, body { height: 100%; }
+    body { overflow: hidden; }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; }
-    body {
-      font-family: "Tajawal", "Segoe UI", Tahoma, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      overflow: hidden;
-    }
-
-    /* ---------- Deck & slides ---------- */
     .deck {
       position: relative;
       width: 100vw;
@@ -42,255 +44,39 @@
       height: 100dvh;
       overflow: hidden;
     }
-    .slide {
+
+    .deck .slide {
       position: absolute;
       inset: 0;
-      display: grid;
-      place-items: center;
-      padding: clamp(24px, 5vh, 54px) clamp(20px, 7vw, 86px);
-      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0 !important;
+      overflow: hidden;
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
       transition: opacity 200ms ease, visibility 0s linear 200ms;
     }
-    .slide::before {
-      content: "";
-      position: absolute;
-      width: 60vw;
-      height: 60vw;
-      max-width: 760px;
-      max-height: 760px;
-      inset-inline-end: -22vw;
-      top: -28vw;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--gold-soft) 0%, transparent 68%);
-      pointer-events: none;
-    }
-    .slide.is-active {
+    .deck .slide.is-active {
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
       transition: opacity 200ms ease, visibility 0s;
     }
-    .slide-inner {
-      position: relative;
-      z-index: 1;
-      width: min(1100px, 100%);
-      max-height: 100%;
-      overflow: auto;
-      scrollbar-width: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: clamp(12px, 2vh, 22px);
-    }
-    .slide-inner::-webkit-scrollbar { display: none; }
 
-    .kicker {
-      margin: 0;
-      font-size: clamp(0.82rem, 1.4vw, 1rem);
-      font-weight: 800;
-      color: var(--accent);
-      letter-spacing: 0.01em;
-    }
-    .kicker::before {
-      content: "";
-      display: inline-block;
-      width: 26px;
-      height: 2px;
-      margin-inline-end: 10px;
-      vertical-align: middle;
-      background: var(--gold);
-    }
-    h1, h2 {
-      margin: 0;
-      line-height: 1.2;
-      color: var(--ink);
-    }
-    h1 { font-size: clamp(2.8rem, 7vw, 5.2rem); font-weight: 800; }
-    h2 { font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; }
-    .accent { color: var(--accent); }
-    .lead {
-      margin: 0;
-      max-width: 78ch;
-      font-size: clamp(1rem, 1.8vw, 1.28rem);
-      line-height: 1.75;
-      color: var(--muted);
-    }
-    .small { font-size: clamp(0.86rem, 1.3vw, 1rem); line-height: 1.7; color: var(--muted); }
-
-    /* ---------- Layout helpers ---------- */
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
-      gap: clamp(18px, 4vw, 48px);
-      align-items: center;
-    }
-    .copy { display: flex; flex-direction: column; gap: 12px; }
-    .check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-    .check-list li { position: relative; padding-inline-start: 24px; font-size: clamp(0.9rem, 1.4vw, 1.05rem); }
-    .check-list li::before {
-      content: "";
-      position: absolute;
-      inset-inline-start: 2px;
-      top: 0.65em;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 4px var(--gold-soft);
-    }
-    .media {
-      margin: 0;
-      padding: 8px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      transform: rotate(1deg);
-    }
-    .media img,
-    .diagram img {
-      display: block;
+    /* المحتوى الأصلي كما هو، يُصغّر فقط ليناسب ارتفاع الشاشة */
+    .slide-scale {
       width: 100%;
-      max-height: 42vh;
-      object-fit: cover;
-      border-radius: 16px;
+      transform-origin: center center;
+      will-change: transform;
     }
-    .diagram { margin: 0; padding: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; }
-    .diagram img { max-height: 20vh; object-fit: contain; background: #fffaf0; }
-    figcaption { margin-top: 6px; text-align: center; font-size: 0.78rem; color: var(--muted); }
+    .deck .reveal { opacity: 1; transform: none; }
 
-    .cards, .stats, .steps, .list, .facts {
-      display: grid;
-      gap: clamp(10px, 1.5vw, 16px);
-    }
-    .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-    .card, .stat, .step, .list-item, .fact, .note-box, .reason-box {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .card, .step, .list-item, .fact { padding: clamp(12px, 1.8vw, 18px); }
-    .card h3, .step h3, .list-item h3, .fact h3 { margin: 0 0 5px; font-size: clamp(0.98rem, 1.5vw, 1.12rem); }
-    .card p, .step p, .list-item p, .fact p { margin: 0; font-size: clamp(0.82rem, 1.2vw, 0.92rem); line-height: 1.65; color: var(--muted); }
-    .badge {
-      display: grid;
-      place-items: center;
-      width: 30px;
-      height: 30px;
-      margin-bottom: 10px;
-      border-radius: 50%;
-      background: var(--gold-soft);
-      color: var(--accent-strong);
-      font-weight: 800;
-      font-size: 0.9rem;
-    }
-
-    .stat { padding: clamp(14px, 2vw, 22px) 12px; text-align: center; border-top: 3px solid var(--gold); }
-    .stat strong {
-      display: block;
-      font-size: clamp(1.7rem, 3.6vw, 2.8rem);
-      line-height: 1.15;
-      color: var(--accent);
-    }
-    .stat span { display: block; margin-top: 6px; font-size: clamp(0.8rem, 1.2vw, 0.95rem); font-weight: 700; line-height: 1.55; color: var(--muted); }
-
-    .step { text-align: center; }
-    .step .badge { margin-inline: auto; }
-    .process { display: grid; gap: 8px; counter-reset: process; }
-    .process-item { position: relative; padding-inline-start: 46px; }
-    .process-item::before {
-      counter-increment: process;
-      content: counter(process);
-      position: absolute;
-      inset-inline-start: 0;
-      top: 0;
-      width: 30px;
-      height: 30px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.85rem;
-    }
-    .process-item h3 { margin: 0 0 2px; font-size: 1rem; }
-    .process-item p { margin: 0; font-size: 0.86rem; color: var(--muted); }
-
-    .note-box, .reason-box { padding: clamp(12px, 1.8vw, 18px); }
-    .note-box { background: var(--gold-soft); border-color: var(--gold); }
-    .reason-box { background: var(--green-soft); border-color: color-mix(in srgb, var(--green) 30%, transparent); }
-    .note-box p, .reason-box p { margin: 0; font-size: clamp(0.84rem, 1.2vw, 0.94rem); line-height: 1.7; color: var(--ink); }
-    .reason-box h3, .note-box h3 { margin: 0 0 5px; font-size: 1rem; }
-
-    .meanings { display: grid; gap: 8px; }
-    .meaning { display: flex; gap: 12px; align-items: flex-start; }
-    .meaning .badge { flex: 0 0 auto; margin: 0; }
-    .meaning h4 { margin: 0 0 2px; font-size: 0.95rem; }
-    .meaning p { margin: 0; font-size: 0.84rem; line-height: 1.6; color: var(--muted); }
-    .quran-text { font-family: "Amiri", "Tajawal", serif; font-size: clamp(1rem, 1.7vw, 1.22rem); line-height: 1.9; color: var(--accent-strong); }
-
-    .list-item { display: flex; gap: 12px; align-items: flex-start; }
-    .list-item .badge { flex: 0 0 auto; margin: 0; background: var(--green-soft); color: var(--green); }
-
-    .fact img { width: 100%; height: clamp(64px, 10vh, 96px); object-fit: cover; border-radius: 12px; margin-bottom: 8px; }
-    .fact-media-video {
-      display: grid;
-      place-items: center;
-      height: clamp(64px, 10vh, 96px);
-      margin-bottom: 8px;
-      border-radius: 12px;
-      background: linear-gradient(140deg, #4a3a16, #201a10);
-      border: 1px solid var(--gold);
-    }
-    .play {
-      display: grid;
-      place-items: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-    .play::after {
-      content: "";
-      width: 0;
-      height: 0;
-      margin-left: 2px;
-      border-top: 5px solid transparent;
-      border-bottom: 5px solid transparent;
-      border-left: 8px solid #2a210c;
-    }
-    .fact-link { display: inline-block; margin-top: 6px; font-size: 0.8rem; font-weight: 800; color: var(--accent); text-decoration: none; }
-    .fact-link:hover { text-decoration: underline; }
-
-    /* ---------- Title & themed slides ---------- */
-    .slide--title {
-      text-align: center;
-      background:
-        linear-gradient(110deg, rgba(255,250,240,0.97) 0%, rgba(255,250,240,0.82) 55%, rgba(255,250,240,0.62) 100%),
-        url("assets/img/logo.jpg") center / cover no-repeat;
-    }
-    .slide--title .slide-inner { align-items: center; }
-    .slide--title .lead { margin-inline: auto; }
-    .hint { margin: 4px 0 0; font-size: 0.82rem; color: var(--muted); }
-    .slide--env {
-      background:
-        linear-gradient(110deg, rgba(255,250,240,0.95) 0%, rgba(255,250,240,0.82) 55%, rgba(255,250,240,0.62) 100%),
-        url("assets/img/bees.jpg") center / cover no-repeat;
-    }
-    .slide--closing { text-align: center; background: linear-gradient(160deg, #fffaf0, #f7e9c7); }
-    .slide--closing .slide-inner { align-items: center; }
-
-    /* ---------- Controls ---------- */
+    /* ---------- أدوات التنقل (بنفس ألوان الموقع) ---------- */
     .slide-counter {
       position: fixed;
       z-index: 30;
@@ -299,8 +85,10 @@
       padding: 6px 14px;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: var(--shadow);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-sm);
       font-size: 0.85rem;
       font-weight: 800;
       color: var(--accent);
@@ -315,27 +103,32 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line-strong);
+      background: color-mix(in srgb, var(--surface) 94%, transparent);
       color: var(--accent);
-      box-shadow: var(--shadow);
-      font-family: inherit;
+      box-shadow: var(--shadow-md);
+      font-family: var(--font-ar);
       font-size: 1.8rem;
       line-height: 1;
       cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: transform 200ms ease, background 200ms ease, color 200ms ease;
     }
-    .nav-btn:hover:not(:disabled) { background: var(--gold-soft); transform: translateY(-50%) scale(1.06); }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--gold-soft);
+      color: var(--accent-strong);
+      transform: translateY(-50%) scale(1.07);
+    }
     .nav-btn:disabled { opacity: 0.35; cursor: default; }
     .nav-btn--prev { inset-inline-start: 20px; }
     .nav-btn--next { inset-inline-end: 20px; }
+
     .progress {
       position: fixed;
       z-index: 30;
       inset-inline: 0;
       bottom: 0;
       height: 3px;
-      background: rgba(180, 119, 16, 0.12);
+      background: color-mix(in srgb, var(--accent) 14%, transparent);
     }
     .progress__fill {
       position: absolute;
@@ -347,18 +140,7 @@
       transition: width 200ms ease;
     }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .split { grid-template-columns: 1fr; }
-      .media img { max-height: 26vh; }
-      .cards, .stats, .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
     @media (max-width: 620px) {
-      .slide { padding: 58px 16px 78px; }
-      h1 { font-size: 2.6rem; }
-      h2 { font-size: 1.7rem; }
-      .cards, .stats, .steps, .list, .facts { grid-template-columns: 1fr; }
       .slide-counter { top: 12px; inset-inline-start: 14px; font-size: 0.76rem; padding: 5px 10px; }
       .nav-btn {
         top: auto;
@@ -368,52 +150,30 @@
         height: 46px;
         font-size: 1.5rem;
       }
-      .nav-btn:hover:not(:disabled) { transform: scale(1.06); }
+      .nav-btn:hover:not(:disabled) { transform: scale(1.07); }
       .nav-btn--prev { inset-inline-start: 14px; }
       .nav-btn--next { inset-inline-end: 14px; }
-      .media, .diagram { display: none; }
-    }
-    @media (max-height: 700px) {
-      .slide { padding-block: 34px 46px; }
-      .slide-inner { gap: 8px; }
-      h2 { font-size: clamp(1.45rem, 3vw, 2rem); }
-      .lead { font-size: 0.88rem; line-height: 1.5; }
-      .card, .step, .list-item, .fact { padding: 9px 11px; }
-      .card h3, .step h3, .list-item h3, .fact h3 { font-size: 0.86rem; margin-bottom: 2px; }
-      .card p, .step p, .list-item p, .fact p { font-size: 0.72rem; line-height: 1.45; }
-      .fact img, .fact-media-video { height: 48px; }
-      .diagram img { max-height: 11vh; }
-      .media img { max-height: 26vh; }
-      .note-box, .reason-box { padding: 9px 11px; }
-      .meaning p { font-size: 0.74rem; line-height: 1.45; }
-      .meaning h4 { font-size: 0.82rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .slide, .progress__fill, .nav-btn { transition-duration: 0.01ms !important; }
     }
 
-    /* ---------- Print: one slide per page ---------- */
+    /* ---------- الطباعة: كل شريحة صفحة مستقلة ---------- */
     @page { size: A4 landscape; margin: 0; }
     @media print {
       html, body { height: auto; overflow: visible; background: #fff; }
       .deck { position: static; width: auto; height: auto; overflow: visible; }
-      .slide {
+      .deck .slide {
         position: relative;
         inset: auto;
-        display: grid;
-        width: 100%;
+        width: 297mm;
         height: 210mm;
-        min-height: 210mm;
-        padding: 14mm 16mm;
         break-after: page;
         page-break-after: always;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
       }
-      .slide:last-child { break-after: auto; page-break-after: auto; }
-      .slide-inner { max-height: none; overflow: visible; }
-      .nav-btn, .slide-counter, .progress { display: none !important; }
+      .deck .slide:last-child { break-after: auto; page-break-after: auto; }
+      .slide-scale { width: 100%; }
+      .slide-counter, .nav-btn, .progress { display: none !important; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
@@ -422,243 +182,482 @@
 
   <main class="deck" id="deck" aria-label="عرض حكاية خلية">
 
-    <!-- 1 -->
-    <section class="slide slide--title is-active" aria-label="الشريحة الأولى: العنوان">
-      <div class="slide-inner">
-        <p class="kicker">رحلة بين أجنحة النحل وأسرار الطبيعة</p>
-        <h1>حكاية <span class="accent">خلية</span></h1>
-        <p class="lead">من بيضة صغيرة إلى عسلٍ ذهبي، ومن تلقيح الأزهار إلى آياتٍ تتحدث عن النحل في سورة النحل.</p>
-        <p class="hint">للتنقل: الأسهم أو المسافة أو أزرار التالي والسابق</p>
+    <!-- ============ 1. Hero ============ -->
+    <section class="slide hero is-active" id="hero" aria-label="الشريحة الأولى: حكاية خلية">
+      <div class="slide-scale">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">حكاية خلية <span class="bee-dot">✦</span> عالم النحل</span>
+
+            <h1 class="hero-title">
+              حكاية خلية
+              <span class="accent-text">«رحلة بين أجنحة النحل وأسرار الطبيعة»</span>
+            </h1>
+
+            <p class="hero-lead">النحل من الكائنات الصغيرة التي تلعب دورًا كبيرًا في الطبيعة</p>
+            <p>فهو لا ينتج العسل فحسب، بل يساعد النباتات على التكاثر ويحافظ على التوازن البيئي. هيا نكتشف معًا أسرار هذا العالم المدهش!</p>
+
+            <div class="hero-actions">
+              <a class="btn btn--primary" href="#about">
+                ابدأ الرحلة
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn btn--ghost" href="#quiz">اختبر معلوماتك</a>
+            </div>
+          </div>
+
+          <div class="hero-art reveal" aria-label="صور من عالم النحل وأقراص العسل">
+            <div class="hero-float hero-float--one">
+              <img src="assets/img/honey-flow.jpg" alt="خلية نحل وأقراص العسل" loading="lazy">
+            </div>
+            <div class="hero-float hero-float--two">
+              <img src="assets/img/bees.jpg" alt="نحل على أطراف خلية" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="stacked-intro reveal">
+            <div class="stats-tab">
+              <strong>+٢٠ ألف</strong>
+              <span>نوع من النحل في مختلف أنحاء العالم</span>
+            </div>
+            <div class="intro-banner">
+              <p><strong>حكاية خلية...</strong> رحلة قصيرة في عالم مخلوق صغير يحمل أسرارًا عظيمة، من لحظة خروجه من البيضة إلى صناعة العسل، ومن دوره في تلقيح الأزهار إلى ما ذكره القرآن الكريم في خلقه.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 2 -->
-    <section class="slide" aria-label="الشريحة الثانية: ما هو النحل">
-      <div class="slide-inner">
-        <p class="kicker">التعريف بالنحل</p>
-        <h2>ما هو <span class="accent">النحل؟</span></h2>
-        <div class="split">
-          <div class="copy">
-            <p class="lead">النحل حشرات طائرة تنتمي إلى رتبة غشائيات الأجنحة، تتميز بأجنحتها وشعيراتها التي تساعدها على جمع حبوب اللقاح.</p>
+    <!-- ============ 2. What are bees? ============ -->
+    <section class="slide section section--tint" id="about" aria-label="الشريحة الثانية: ما هو النحل">
+      <div class="slide-scale">
+        <div class="container split">
+          <div class="split-visual reveal">
+            <div class="image-card image-card--wide">
+              <img src="assets/img/bee-hero.jpg" alt="نحلة بين الأزهار تجمع حبوب اللقاح" loading="lazy" width="3840" height="2263">
+            </div>
+          </div>
+          <div class="split-copy reveal">
+            <span class="eyebrow">التعريف بالنحل</span>
+            <h2 class="section-title">ما هو النحل؟</h2>
+            <p class="section-lead">النحل حشرات طائرة تنتمي إلى رتبة غشائيات الأجنحة، ويتميز بجسمه الصغير وأجنحته ووجود شعيرات تساعد بعض أنواعه على جمع حبوب اللقاح.</p>
             <ul class="check-list">
-              <li>يعيش كثير من أنواعه في مجموعات.</li>
+              <li>يعيش كثير من أنواع النحل في مجموعات.</li>
               <li>يتغذى على رحيق الأزهار وحبوب اللقاح.</li>
               <li>يساعد في تلقيح النباتات.</li>
               <li>ينتشر في بيئات مختلفة حول العالم.</li>
             </ul>
           </div>
-          <figure class="media">
-            <img src="assets/img/bee-hero.jpg" alt="نحلة بين الأزهار تجمع حبوب اللقاح">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. Colony ============ -->
+    <section class="slide section" id="colony" aria-label="الشريحة الثالثة: مملكة الخلية وأنواع النحل">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">أنواع النحل</span>
+            <h2 class="section-title">مملكة الخلية <span class="accent-text">وأنواع النحل</span></h2>
+            <p class="section-lead">تتكون مستعمرة نحل العسل من ثلاثة أنواع رئيسية، لكل منها دور واضح في حياة الخلية.</p>
+          </div>
+
+          <div class="card-grid card-grid--3">
+            <article class="role-card role-card--queen reveal">
+              <div class="role-icon" aria-hidden="true">👑</div>
+              <h3>الملكة</h3>
+              <ul>
+                <li>الأنثى الأساسية المسؤولة عن وضع البيض.</li>
+                <li>توجد عادة ملكة واحدة في المستعمرة.</li>
+              </ul>
+            </article>
+
+            <article class="role-card role-card--worker reveal">
+              <div class="role-icon" aria-hidden="true">🐝</div>
+              <h3>العاملات</h3>
+              <ul>
+                <li>إناث تجمع الرحيق وحبوب اللقاح.</li>
+                <li>تنظف الخلية وتعتني بالصغار.</li>
+                <li>تساعد في حماية المستعمرة.</li>
+              </ul>
+            </article>
+
+            <article class="role-card role-card--drone reveal">
+              <div class="role-icon" aria-hidden="true">🛡️</div>
+              <h3>الذكور</h3>
+              <ul>
+                <li>وظيفتها الأساسية التزاوج مع الملكة.</li>
+                <li>تختلف عن الشغالات في الشكل والوظيفة.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. Life cycle ============ -->
+    <section class="slide section section--tint" id="lifecycle" aria-label="الشريحة الرابعة: دورة حياة النحلة">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">دورة حياة النحلة</span>
+            <h2 class="section-title">من بيضة إلى نحلة <span class="accent-text">بالغة</span></h2>
+            <p class="section-lead">تمر النحلة بأربع مراحل أساسية خلال نموها، تتكامل في كل منها أعضاء جسمها.</p>
+          </div>
+
+          <div class="timeline">
+            <article class="step reveal">
+              <div class="step-num" aria-hidden="true">🥚</div>
+              <h3>البيضة</h3>
+              <p>تبدأ حياة النحلة داخل البيضة التي تضعها الملكة في العيون الشمعية.</p>
+            </article>
+            <article class="step reveal">
+              <div class="step-num" aria-hidden="true">🐛</div>
+              <h3>اليرقة</h3>
+              <p>تخرج اليرقة وتتغذى وتنمو، وتعتني بها العاملات طوال هذه المرحلة.</p>
+            </article>
+            <article class="step reveal">
+              <div class="step-num" aria-hidden="true">🕸️</div>
+              <h3>العذراء</h3>
+              <p>تبدأ أعضاء جسم النحلة بالنمو والتطور داخل العين الشمعي المغلق.</p>
+            </article>
+            <article class="step reveal">
+              <div class="step-num" aria-hidden="true">🐝</div>
+              <h3>النحلة البالغة</h3>
+              <p>تخرج نحلة مكتملة النمو لتبدأ العمل داخل الخلية وخارجها.</p>
+            </article>
+          </div>
+
+          <figure class="lifecycle-figure reveal">
+            <img src="assets/img/bee-life-cycle.svg" alt="مخطط يوضح دورة حياة النحلة في أربع مراحل: البيضة، اليرقة، العذراء، النحلة البالغة" loading="lazy" width="1200" height="330">
+            <figcaption>دورة حياة النحلة في رسم توضيحي مختصر</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- 3 -->
-    <section class="slide" aria-label="الشريحة الثالثة: أرقام سريعة">
-      <div class="slide-inner">
-        <p class="kicker">أرقام سريعة</p>
-        <h2>أرقام من عالم <span class="accent">النحل</span></h2>
-        <div class="stats">
-          <div class="stat"><strong>+٢٠ ألف</strong><span>نوع من النحل في مختلف أنحاء العالم</span></div>
-          <div class="stat"><strong>٣</strong><span>أنواع داخل الخلية: ملكة، عاملات، وذكور</span></div>
-          <div class="stat"><strong>٤</strong><span>مراحل دورة الحياة: بيضة، يرقة، عذراء، وبالغة</span></div>
-        </div>
-      </div>
-    </section>
+    <!-- ============ 5. How bees make honey ============ -->
+    <section class="slide section" id="honey" aria-label="الشريحة الخامسة: صناعة العسل">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">صناعة العسل</span>
+            <h2 class="section-title">كيف يصنع النحل <span class="accent-text">العسل؟</span></h2>
+            <p class="section-lead">يمر إنتاج العسل بعدة خطوات دقيقة، من زهرة إلى عين سداسية في قرص شمعي.</p>
+          </div>
 
-    <!-- 4 -->
-    <section class="slide" aria-label="الشريحة الرابعة: مملكة الخلية">
-      <div class="slide-inner">
-        <p class="kicker">مملكة الخلية</p>
-        <h2>ثلاثة أنواع.. <span class="accent">دورٌ واحد</span></h2>
-        <p class="lead">تتكون مستعمرة نحل العسل من ثلاثة أنواع رئيسية، لكل منها مهمة واضحة في حياة الخلية.</p>
-        <div class="cards">
-          <article class="card">
-            <span class="badge">١</span>
-            <h3>الملكة</h3>
-            <p>الأنثى الأساسية المسؤولة عن وضع البيض، وعادة توجد ملكة واحدة في المستعمرة.</p>
-          </article>
-          <article class="card">
-            <span class="badge">٢</span>
-            <h3>العاملات</h3>
-            <p>إناث تجمع الرحيق وحبوب اللقاح، وتنظف الخلية وتعتني بالصغار وتساعد في حمايتها.</p>
-          </article>
-          <article class="card">
-            <span class="badge">٣</span>
-            <h3>الذكور</h3>
-            <p>مهمتهم الأساسية التزاوج مع الملكة، ويختلفون عن العاملات في الشكل والوظيفة.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5 -->
-    <section class="slide" aria-label="الشريحة الخامسة: دورة الحياة">
-      <div class="slide-inner">
-        <p class="kicker">دورة الحياة</p>
-        <h2>من بيضة إلى نحلة <span class="accent">بالغة</span></h2>
-        <div class="steps">
-          <article class="step"><span class="badge">١</span><h3>البيضة</h3><p>تضعها الملكة في العيون الشمعية.</p></article>
-          <article class="step"><span class="badge">٢</span><h3>اليرقة</h3><p>تتغذى وتنمو وتعتني بها العاملات.</p></article>
-          <article class="step"><span class="badge">٣</span><h3>العذراء</h3><p>تتطور الأعضاء داخل العين المغلقة.</p></article>
-          <article class="step"><span class="badge">٤</span><h3>النحلة البالغة</h3><p>تخرج مكتملة النمو لتبدأ العمل.</p></article>
-        </div>
-        <figure class="diagram">
-          <img src="assets/img/bee-life-cycle.svg" alt="مخطط دورة حياة النحلة في أربع مراحل">
-          <figcaption>دورة حياة النحلة في رسم توضيحي مختصر</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <!-- 6 -->
-    <section class="slide" aria-label="الشريحة السادسة: صناعة العسل">
-      <div class="slide-inner">
-        <p class="kicker">صناعة العسل</p>
-        <h2>من زهرة إلى عين <span class="accent">شمعية</span></h2>
-        <div class="split">
           <div class="process">
-            <div class="process-item"><h3>جمع الرحيق</h3><p>تجمع النحلات رحيق الأزهار.</p></div>
-            <div class="process-item"><h3>النقل إلى الخلية</h3><p>تنقل الرحيق إلى الداخل.</p></div>
-            <div class="process-item"><h3>المعالجة والتجفيف</h3><p>تعالجه الإنزيمات وتقلل حركة الأجنحة نسبة الماء فيه.</p></div>
-            <div class="process-item"><h3>التخزين</h3><p>يُخزّن العسل في العيون السداسية بالأقراص الشمعية.</p></div>
+            <article class="process-item reveal">
+              <h3>جمع الرحيق</h3>
+              <p>تجمع النحلات رحيق الأزهار.</p>
+            </article>
+            <article class="process-item reveal">
+              <h3>النقل إلى الخلية</h3>
+              <p>تنقل الرحيق إلى الداخل.</p>
+            </article>
+            <article class="process-item reveal">
+              <h3>المعالجة والتجفيف</h3>
+              <p>تعالجه إنزيمات النحل وتساعد حركة أجنحته على تقليل الماء فيه.</p>
+            </article>
+            <article class="process-item reveal">
+              <h3>التخزين</h3>
+              <p>يُخزّن العسل في العيون السداسية داخل الأقراص الشمعية.</p>
+            </article>
           </div>
-          <figure class="media">
-            <img src="assets/img/honey-flow.jpg" alt="أقراص العسل الشمعية في الخلية">
-            <figcaption>لون العسل يتبع نوع الأزهار التي زارها النحل.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
 
-    <!-- 7 -->
-    <section class="slide" aria-label="الشريحة السابعة: فوائد العسل">
-      <div class="slide-inner">
-        <p class="kicker">فوائد العسل</p>
-        <h2>فوائد <span class="accent">العسل</span></h2>
-        <div class="cards">
-          <article class="card"><h3>مصدر للطاقة</h3><p>سكريات طبيعية تمد الجسم بالطاقة.</p></article>
-          <article class="card"><h3>تهدئة السعال</h3><p>قد يساعد على تخفيف السعال عند نزلات البرد.</p></article>
-          <article class="card"><h3>مضادات الأكسدة</h3><p>مركبات تساعد في حماية خلايا الجسم.</p></article>
-          <article class="card"><h3>خصائص مضادة للميكروبات</h3><p>تساعد على الحد من نمو بعض البكتيريا.</p></article>
-          <article class="card"><h3>العناية بالجروح</h3><p>يُستخدم في بعض الضمادات للمساعدة في التئام الجروح.</p></article>
-          <article class="card"><h3>شفاء بإذن الله</h3><p>﴿فِيهِ شِفَاءٌ لِّلنَّاسِ﴾، فيه منفعة وبركة للإنسان.</p></article>
-        </div>
-        <div class="note-box">
-          <h3>معلومة مهمة</h3>
-          <p>العسل غذاء مفيد، لكنه يحتوي على نسبة مرتفعة من السكريات، لذلك يُستهلك باعتدال، ولا يُعطى للأطفال دون عمر سنة.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8 -->
-    <section class="slide" aria-label="الشريحة الثامنة: النحل في القرآن">
-      <div class="slide-inner">
-        <p class="kicker">النحل في القرآن الكريم</p>
-        <h2>سورة <span class="accent">النحل</span> وآياتٌ عن العسل</h2>
-        <div class="split">
-          <div class="copy">
-            <div class="reason-box">
-              <h3>لماذا سُميت سورة النحل بهذا الاسم؟</h3>
-              <p>لورود ذكر النحل فيها، وبيان ما في خلقه من دلائل قدرة الله، ودعوتنا إلى التأمل في دقته ومنافعه.</p>
-            </div>
-            <div class="meanings">
-              <div class="meaning"><span class="badge">١</span><div><h4>بيوت النحل</h4><p>أرشد الله النحل إلى اتخاذ بيوت في الجبال والأشجار ومما يبنيه الناس.</p></div></div>
-              <div class="meaning"><span class="badge">٢</span><div><h4>غذاء النحل</h4><p>إشارة إلى اعتماده على الأزهار والثمرات.</p></div></div>
-              <div class="meaning"><span class="badge">٣</span><div><h4>إنتاج العسل</h4><p>شراب يخرج من بطون النحل، وتتنوع ألوانه بحسب مصادر الرحيق.</p></div></div>
-              <div class="meaning"><span class="badge">٤</span><div><h4>فوائد العسل</h4><p>بيان ما جعل الله فيه من فوائد وخصائص نافعة للإنسان.</p></div></div>
+          <div class="banner-image reveal">
+            <img src="assets/img/honey-flow.jpg" alt="أقراص العسل الشمعية في الخلية" loading="lazy" width="1200" height="675">
+            <div class="banner-caption">
+              <h3>من رحيق الأزهار إلى عسل ذهبي</h3>
+              <p>يتحدد لون العسل بنوع الأزهار التي زارها النحل وجمع من رحيقها؛ فلكل زهرة أثر في لون العسل وطعمه، مثل عسل البرتقال الفاتح وعسل عباد الشمس الداكن.</p>
             </div>
           </div>
-          <figure class="media">
-            <img src="assets/img/surah-al-nahl.jpg" alt="صورة من آيات سورة النحل في القرآن الكريم">
-            <figcaption>سورة النحل — السورة السادسة عشرة</figcaption>
-          </figure>
         </div>
       </div>
     </section>
 
-    <!-- 9 -->
-    <section class="slide slide--env" aria-label="الشريحة التاسعة: النحل والبيئة">
-      <div class="slide-inner">
-        <p class="kicker">النحل والبيئة</p>
-        <h2>أهمية النحل <span class="accent">في البيئة</span></h2>
-        <p class="lead">النحل من أهم الملقحات في الطبيعة، ولولاه لقلّت ثمار كثيرة وتعطلت سلاسل غذائية بأكملها.</p>
-        <div class="list">
-          <article class="list-item"><span class="badge">١</span><div><h3>تلقيح النباتات</h3><p>ينقل حبوب اللقاح بين الأزهار فيساعدها على إنتاج الثمار.</p></div></article>
-          <article class="list-item"><span class="badge">٢</span><div><h3>التنوع الحيوي</h3><p>يدعم نمو الأزهار والنباتات التي تعيش عليها كائنات أخرى.</p></div></article>
-          <article class="list-item"><span class="badge">٣</span><div><h3>التوازن البيئي</h3><p>يساهم في استمرار الدورة الطبيعية للحياة.</p></div></article>
-          <article class="list-item"><span class="badge">٤</span><div><h3>الأمن الغذائي</h3><p>كثير من الفواكه والمحاصيل تعتمد على تلقيح النحل.</p></div></article>
+    <!-- ============ 6. Benefits of honey ============ -->
+    <section class="slide section section--tint" id="benefits" aria-label="الشريحة السادسة: فوائد العسل">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">فوائد العسل</span>
+            <h2 class="section-title">فوائد <span class="accent-text">العسل</span></h2>
+            <p class="section-lead">العسل غذاء طبيعي ينتجه النحل من رحيق الأزهار، ويتميز بمذاقه الحلو واحتوائه على مجموعة من المركبات الغذائية المفيدة.</p>
+          </div>
+
+          <div class="card-grid card-grid--benefits">
+            <article class="benefit-card reveal">
+              <div class="benefit-icon" aria-hidden="true">⚡</div>
+              <h3>مصدر للطاقة</h3>
+              <p>يحتوي العسل على سكريات طبيعية تمد الجسم بالطاقة.</p>
+            </article>
+            <article class="benefit-card reveal">
+              <div class="benefit-icon" aria-hidden="true">🌿</div>
+              <h3>تهدئة السعال</h3>
+              <p>قد يساعد العسل على تخفيف السعال، خاصةً عند الإصابة بنزلات البرد.</p>
+            </article>
+            <article class="benefit-card reveal">
+              <div class="benefit-icon" aria-hidden="true">🛡️</div>
+              <h3>مضادات الأكسدة</h3>
+              <p>يحتوي على مركبات تساعد في حماية خلايا الجسم من الإجهاد التأكسدي.</p>
+            </article>
+            <article class="benefit-card reveal">
+              <div class="benefit-icon" aria-hidden="true">🦠</div>
+              <h3>خصائص مضادة للميكروبات</h3>
+              <p>يمتلك خصائص تساعد على الحد من نمو بعض أنواع البكتيريا.</p>
+            </article>
+            <article class="benefit-card reveal">
+              <div class="benefit-icon" aria-hidden="true">🩹</div>
+              <h3>العناية بالجروح</h3>
+              <p>يُستخدم العسل الطبي المعقم في بعض الضمادات للمساعدة في التئام الجروح.</p>
+            </article>
+            <article class="benefit-card reveal">
+              <div class="benefit-icon" aria-hidden="true">🍯</div>
+              <h3>شفاء بإذن الله</h3>
+              <p>قال تعالى: ﴿فِيهِ شِفَاءٌ لِّلنَّاسِ﴾، ففيه منفعة وبركة للإنسان.</p>
+            </article>
+          </div>
+
+          <div class="note-box reveal">
+            <span class="note-icon" aria-hidden="true">⚠️</span>
+            <p><strong>معلومة مهمة:</strong> العسل غذاء مفيد، لكنه يحتوي على نسبة مرتفعة من السكريات، لذلك يُستهلك باعتدال، ولا يُعطى للأطفال دون عمر سنة.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 10 -->
-    <section class="slide" aria-label="الشريحة العاشرة: معلومات مدهشة">
-      <div class="slide-inner">
-        <p class="kicker">هل تعلم؟</p>
-        <h2>معلومات <span class="accent">مدهشة</span> عن النحل</h2>
-        <div class="facts">
-          <article class="fact">
-            <img src="assets/img/bee-hero.jpg" alt="نحلة عن قرب">
-            <h3>٥ عيون</h3>
-            <p>عينان مركبتان وثلاث عيون بسيطة تساعدها على الاستدلال بالضوء.</p>
-          </article>
-          <article class="fact">
-            <img src="assets/img/bees2.jpg" alt="نحل بين الأزهار">
-            <h3>٢٤ كم/ساعة</h3>
-            <p>يمكن للنحلة الطيران بسرعة تقارب ٢٤ كيلومترًا في الساعة.</p>
-          </article>
-          <article class="fact">
-            <img src="assets/img/bees.jpg" alt="نحل على أقراص الخلية">
-            <h3>٣٥ درجة</h3>
-            <p>تحافظ العاملات على حرارة الخلية لتقارب ٣٥ درجة مئوية.</p>
-          </article>
-          <article class="fact">
-            <div class="fact-media-video"><span class="play" aria-hidden="true"></span></div>
-            <h3>لغة الرقص</h3>
-            <p>ترقص النحلة العائدة لتخبر زميلاتها باتجاه الرحيق ومسافته.</p>
-            <a class="fact-link" href="https://youtube.com/shorts/xjQAeCDdneY?si=h9vBJmhgcwH2KQZ8" target="_blank" rel="noopener noreferrer">شاهد الفيديو</a>
-          </article>
-          <article class="fact">
-            <img src="assets/img/honey-flow.jpg" alt="أقراص العسل الشمعية">
-            <h3>العسل لا يفسد</h3>
-            <p>عند تخزينه بشكل صحيح يبقى صالحًا لزمن طويل جدًا.</p>
-          </article>
-          <article class="fact">
-            <img src="assets/img/bee-life-cycle.svg" alt="بيضة النحلة داخل قرص شمعي">
-            <h3>٢٠٠٠ بيضة</h3>
-            <p>قد تضع الملكة آلاف البيضات يوميًا في موسم النشاط.</p>
-          </article>
+    <!-- ============ 7. Bees in the Quran ============ -->
+    <section class="slide section" id="quran" aria-label="الشريحة السابعة: النحل في القرآن الكريم">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">النحل في القرآن الكريم</span>
+            <h2 class="section-title">سورة <span class="accent-text">النحل</span> وآياتٌ تتحدث عن العسل</h2>
+            <p class="section-lead">ذكر الله سبحانه وتعالى النحل في القرآن الكريم، وخصص له سورة كاملة باسم سورة النحل، وهي السورة السادسة عشرة في القرآن الكريم.</p>
+          </div>
+
+          <div class="quran-layout">
+            <figure class="quran-image reveal">
+              <img src="assets/img/surah-al-nahl.jpg" alt="صورة من آيات سورة النحل في القرآن الكريم" loading="lazy" width="736" height="736">
+              <figcaption>صورة من آيات سورة النحل</figcaption>
+            </figure>
+
+            <div class="reveal">
+              <div class="quran-extra">
+                <h4>لماذا سُميت سورة النحل بهذا الاسم؟</h4>
+                <p>سُميت بهذا الاسم لورود ذكر النحل فيها، وبيان ما في خلقه من دلائل قدرة الله. وتدعونا الآيات إلى التأمل في دقة خلق النحل وطريقة حياته وما ينتج عنه من منافع، لندرك عظمة نعم الله علينا.</p>
+              </div>
+
+              <h3 style="margin:0 0 6px; color:var(--text-strong);">ماذا نتعلم من الآيات؟</h3>
+              <p style="margin:0 0 18px; color:var(--muted); font-size:0.92rem;">يمكن تقسيم المعاني إلى أربعة معانٍ واضحة:</p>
+
+              <div class="quran-meanings">
+                <div class="meaning">
+                  <span class="meaning-num">1</span>
+                  <div><h4>بيوت النحل</h4><p>﴿أَنِ اتَّخِذِي مِنَ الْجِبَالِ بُيُوتًا وَمِنَ الشَّجَرِ وَمِمَّا يَعْرِشُونَ﴾ — أرشد الله النحل إلى اتخاذ بيوت في الجبال والأشجار وما يبنيه الناس.</p></div>
+                </div>
+                <div class="meaning">
+                  <span class="meaning-num">2</span>
+                  <div><h4>غذاء النحل</h4><p>﴿ثُمَّ كُلِي مِن كُلِّ الثَّمَرَاتِ﴾ — إشارة إلى غذاء النحل واعتماده على الأزهار والثمرات.</p></div>
+                </div>
+                <div class="meaning">
+                  <span class="meaning-num">3</span>
+                  <div><h4>إنتاج العسل</h4><p>﴿يَخْرُجُ مِن بُطُونِهَا شَرَابٌ مُّخْتَلِفٌ أَلْوَانُهُ﴾ — شراب يخرج من بطون النحل، وتتنوع ألوانه بحسب مصادر الرحيق.</p></div>
+                </div>
+                <div class="meaning">
+                  <span class="meaning-num">4</span>
+                  <div><h4>فوائد العسل</h4><p>﴿فِيهِ شِفَاءٌ لِّلنَّاسِ﴾ — بيان ما جعل الله في العسل من فوائد وخصائص نافعة للإنسان.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 11 -->
-    <section class="slide" aria-label="الشريحة الحادية عشرة: حماية النحل">
-      <div class="slide-inner">
-        <p class="kicker">حماية النحل</p>
-        <h2>كيف <span class="accent">نحافظ على النحل؟</span></h2>
-        <p class="lead">يمكن لكل منا أن يساهم بحماية النحل بخطوات بسيطة في حياته اليومية.</p>
-        <div class="list">
-          <article class="list-item"><span class="badge">١</span><div><h3>زراعة الأزهار</h3><p>ازرع أزهارًا ونباتات تجذب النحل وتوفر له الرحيق.</p></div></article>
-          <article class="list-item"><span class="badge">٢</span><div><h3>المساحات الخضراء</h3><p>حافظ على الحدائق والمساحات الخضراء في مدينتك.</p></div></article>
-          <article class="list-item"><span class="badge">٣</span><div><h3>تجنب المبيدات</h3><p>تجنب الاستخدام العشوائي للمبيدات التي تضر بالنحل.</p></div></article>
-          <article class="list-item"><span class="badge">٤</span><div><h3>حماية المواطن</h3><p>حافظ على البيئات الطبيعية التي يعيش فيها النحل.</p></div></article>
+    <!-- ============ 8. Importance in the environment ============ -->
+    <section class="slide section env-section" id="environment" aria-label="الشريحة الثامنة: أهمية النحل في البيئة">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="env-panel reveal">
+            <span class="eyebrow">النحل والبيئة</span>
+            <h2 class="section-title">أهمية النحل <span class="accent-text">في البيئة</span></h2>
+            <p class="section-lead">النحل من أهم الملقحات في الطبيعة، ولولاه لقلّت ثمار كثيرة وتعطلت سلاسل غذائية بأكملها.</p>
+            <div class="env-grid">
+              <div class="env-item"><span aria-hidden="true">🌸</span><div><h4>تلقيح النباتات</h4><p>ينقل حبوب اللقاح بين الأزهار، فيساعدها على إنتاج الثمار والبذور.</p></div></div>
+              <div class="env-item"><span aria-hidden="true">🌳</span><div><h4>الحفاظ على التنوع الحيوي</h4><p>يدعم نمو الأزهار والنباتات التي تعيش عليها كائنات أخرى.</p></div></div>
+              <div class="env-item"><span aria-hidden="true">⚖️</span><div><h4>التوازن البيئي</h4><p>يساهم في استمرار الدورة الطبيعية للحياة في الحدائق والبراري.</p></div></div>
+              <div class="env-item"><span aria-hidden="true">🍎</span><div><h4>الأمن الغذائي</h4><p>كثير من الفواكه والمحاصيل تعتمد على تلقيح النحل لتنمو.</p></div></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 12 -->
-    <section class="slide slide--closing" aria-label="الشريحة الثانية عشرة: الخاتمة">
-      <div class="slide-inner">
-        <p class="kicker">الخاتمة</p>
-        <h2>النحل صغير الحجم، <span class="accent">عظيم الأثر!</span></h2>
-        <p class="lead">تعرفنا في رحلتنا على عالم النحل، وطريقة حياته، وأهمية دوره في تلقيح النباتات وإنتاج العسل، وما ذكره القرآن الكريم في خلقه.</p>
-        <div class="reason-box">
-          <p class="quran-text">«وفي خلقه آياتٌ للمتأملين»</p>
+    <!-- ============ 9. Amazing facts ============ -->
+    <section class="slide section section--tint" id="facts" aria-label="الشريحة التاسعة: معلومات مدهشة عن النحل">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">هل تعلم؟</span>
+            <h2 class="section-title">معلومات <span class="accent-text">مدهشة</span> عن النحل</h2>
+            <p class="section-lead">حقائق صغيرة تكشف مدى دقة هذا المخلوق العجيب.</p>
+          </div>
+
+          <div class="fact-grid">
+            <article class="fact-card reveal">
+              <span class="fact-number">5</span>
+              <h3>أعين</h3>
+              <div class="fact-media"><img src="assets/img/bee-eyes.jpe" alt="نحلة عن قرب تُظهر عينيها" loading="lazy"></div>
+              <p>للنحلة عينان مركبتان وثلاث عيون بسيطة تساعدها على الاستدلال بالضوء.</p>
+            </article>
+            <article class="fact-card reveal">
+              <span class="fact-number">24</span>
+              <h3>كم/ساعة</h3>
+              <div class="fact-media"><img src="assets/img/bee-fly.webp" alt="نحل في طريقه بين الأزهار" loading="lazy"></div>
+              <p>يمكن للنحلة الطيران بسرعة تقارب 24 كيلومترًا في الساعة.</p>
+            </article>
+            <article class="fact-card reveal">
+              <span class="fact-number">35°</span>
+              <h3>درجة حرارة الخلية</h3>
+              <div class="fact-media"><img src="assets/img/bees.jpg" alt="نحل على أقراص الخلية" loading="lazy"></div>
+              <p>تحافظ العاملات على حرارة الخلية لتقارب 35 درجة مئوية لتربية الصغار.</p>
+            </article>
+            <article class="fact-card fact-card--video reveal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--accent);">
+                  <path d="M9 18V5l12-2v13"></path>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+              <h3>لغة الرقص</h3>
+              <div class="fact-media"><img src="assets/img/dance.jpg" alt=" نحلة تؤدي رقصة الاهتزاز على قرص العسل " loading="lazy"></div>
+              <p>ترقص النحلة العائدة لتخبر زميلاتها باتجاه الرحيق ومسافته.</p>
+            </article>
+            <article class="fact-card reveal">
+              <span class="fact-number">∞</span>
+              <h3>العسل لا يفسد</h3>
+              <div class="fact-media"><img src="assets/img/honey-flow.jpg" alt="أقراص عسل شمعية في الخلية" loading="lazy"></div>
+              <p>عند تخزينه بشكل صحيح، يمكن أن يبقى العسل صالحًا لزمن طويل جدًا.</p>
+            </article>
+            <article class="fact-card reveal">
+              <span class="fact-number">2,000</span>
+              <h3>بيضة في اليوم</h3>
+              <div class="fact-media fact-media--life"><img src="assets/img/Bee-eggs.jpg" alt="بيضة النحلة داخل قرص شمعي" loading="lazy"></div>
+              <p>قد تضع الملكة آلاف البيضات يوميًا في موسم النشاط.</p>
+            </article>
+            <div class="facts-video-section reveal" style="margin-top: 40px; text-align: center;">
+              <h3 style="font-size: 1.25rem; color: var(--text-strong); margin-bottom: 16px; font-weight: 700;">فيديو توضيحي: لغة الرقص عند النحل 🎬</h3>
+              <div class="fact-media fact-video-screen" style="max-width: 600px; margin-inline: auto; border-radius: 16px; overflow: hidden; height: 320px;">
+                <a class="fact-video-link" href="https://youtube.com/shorts/xjQAeCDdneY?si=h9vBJmhgcwH2KQZ8" target="_blank" rel="noopener noreferrer" aria-label="شاهد فيديو لغة الرقص">
+                  <span class="fact-video-play" aria-hidden="true"></span>
+                  <span>شاهد الفيديو</span>
+                </a>
+              </div>
+            </div>
         </div>
-        <p class="small">حماية النحل تعني المساهمة في حماية الطبيعة والحفاظ على توازنها.</p>
-        <h3 class="accent">شكرًا للمتابعة</h3>
+      </div>
+    </section>
+
+    <!-- ============ 10. Protect the bees ============ -->
+    <section class="slide section" id="protect" aria-label="الشريحة العاشرة: كيف نحافظ على النحل">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">حماية النحل</span>
+            <h2 class="section-title">كيف <span class="accent-text">نحافظ على النحل؟</span></h2>
+            <p class="section-lead">يمكن لكل منا أن يساهم بحماية النحل بخطوات بسيطة في حياته اليومية.</p>
+          </div>
+
+          <div class="tip-list">
+            <article class="tip reveal"><span class="tip-check">✓</span><div><h3>زراعة الأزهار</h3><p>ازرع أزهارًا ونباتات تجذب النحل وتوفر له الرحيق.</p></div></article>
+            <article class="tip reveal"><span class="tip-check">✓</span><div><h3>المساحات الخضراء</h3><p>حافظ على الحدائق والمساحات الخضراء في مدينتك.</p></div></article>
+            <article class="tip reveal"><span class="tip-check">✓</span><div><h3>تجنب المبيدات</h3><p>تجنب الاستخدام العشوائي للمبيدات التي تضر بالنحل.</p></div></article>
+            <article class="tip reveal"><span class="tip-check">✓</span><div><h3>حماية المواطن</h3><p>حافظ على البيئات الطبيعية التي يعيش فيها النحل.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. Conclusion ============ -->
+    <section class="slide section section--tint" id="conclusion" aria-label="الشريحة الحادية عشرة: الخاتمة">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="conclusion reveal">
+            <span class="bee-lg" aria-hidden="true">🐝</span>
+            <h2>النحل صغير الحجم، عظيم الأثر!</h2>
+            <p>تعرفنا في رحلتنا على عالم النحل، وطريقة حياته، وأهمية دوره في تلقيح النباتات وإنتاج العسل. لنتذكر دائمًا أن حماية النحل تعني المساهمة في حماية الطبيعة والحفاظ على توازنها.</p>
+            <p class="closing-quote">وفي ختام رحلتنا في عالم النحل، اكتشفنا أن هذا المخلوق الصغير يحمل أسرارًا عظيمة، وأن في خلقه دليلًا على عظمة الخالق وإبداعه. وقد دعانا القرآن الكريم إلى التأمل في النحل وما يقدمه من منافع، لندرك عظمة نعم الله علينا، ونحرص على المحافظة على مخلوقاته.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Quiz ============ -->
+    <section class="slide section" id="quiz" aria-label="الشريحة الثانية عشرة: اختبر معلوماتك">
+      <div class="slide-scale">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">اختبر معلوماتك</span>
+            <h2 class="section-title">هل تذكّرت <span class="accent-text">حكاية الخلية؟</span></h2>
+            <p class="section-lead">ثلاثة أسئلة قصيرة، اختر الإجابة الصحيحة من الخيارات.</p>
+          </div>
+
+          <div class="quiz-wrap reveal">
+            <div class="quiz-progress">
+              <strong>درجتك</strong>
+              <span class="score-pill" id="quiz-score">0 / 3</span>
+              <div class="progress-track"><div class="progress-fill" id="quiz-progress-fill"></div></div>
+            </div>
+
+            <div class="quiz-card"
+                 data-good="أحسنت! إجابتك صحيحة 🐝"
+                 data-bad="ليست الإجابة الصحيحة."
+                 data-answer="الإجابة الصحيحة: أ) أن تتخذ من الجبال والشجر ومما يعرشون بيوتاً وتأكل من كل الثمرات">
+              <div class="quiz-question"><span class="q-index">1</span><h3>في سورة النحل، ما هو الإلهام أو التوجيه الذي أُوْحِيَ إلى النحل كما ورد في الآيات الكريمة؟</h3></div>
+              <div class="options">
+                <button class="q-option" type="button" data-correct="true">أ) أن تتخذ من الجبال والشجر ومما يعرشون بيوتاً وتأكل من كل الثمرات</button>
+                <button class="q-option" type="button" data-correct="false">ب) أن تبني بيوتها حصراً في رمال الصحراء والوديان العميقة</button>
+                <button class="q-option" type="button" data-correct="false">ج) ألا تخرج من خلاياها إلا في ليلة البدر من كل شهر</button>
+              </div>
+              <div class="q-feedback" role="status" aria-live="polite"></div>
+            </div>
+
+            <div class="quiz-card"
+                 data-good="ممتاز! الملكة تضع البيض 🐝"
+                 data-bad="ليست الإجابة الصحيحة."
+                 data-answer="الإجابة الصحيحة: ج) وضع البيض">
+              <div class="quiz-question"><span class="q-index">2</span><h3>ما الوظيفة الأساسية لملكة النحل داخل الخلية؟</h3></div>
+              <div class="options">
+                <button class="q-option" type="button" data-correct="false">أ) جمع الرحيق</button>
+                <button class="q-option" type="button" data-correct="false">ب) حماية الخلية</button>
+                <button class="q-option" type="button" data-correct="true">ج) وضع البيض</button>
+              </div>
+              <div class="q-feedback" role="status" aria-live="polite"></div>
+            </div>
+
+            <div class="quiz-card"
+                 data-good="رائع! الرحيق هو المادة الأساسية للعسل 🍯"
+                 data-bad="ليست الإجابة الصحيحة."
+                 data-answer="الإجابة الصحيحة: أ) الرحيق">
+              <div class="quiz-question"><span class="q-index">3</span><h3>ما اسم المادة التي يجمعها النحل من الأزهار لصناعة العسل؟</h3></div>
+              <div class="options">
+                <button class="q-option" type="button" data-correct="true">أ) الرحيق</button>
+                <button class="q-option" type="button" data-correct="false">ب) الماء</button>
+                <button class="q-option" type="button" data-correct="false">ج) حبوب اللقاح فقط</button>
+              </div>
+              <div class="q-feedback" role="status" aria-live="polite"></div>
+            </div>
+
+            <div class="quiz-finish" id="quiz-finish">
+              <h3>أحسنت! 🎉</h3>
+              <p>لقد أكملت رحلتك في عالم النحل، وتعرّفت على أسرار مخلوق صغير يحمل في حياته الكثير من العجائب 🐝<br>درجتك: <strong id="quiz-finish-score">0 / 3</strong></p>
+              <button class="btn btn--primary" id="quiz-reset" type="button">إعادة الاختبار</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -671,9 +670,10 @@
 
   <div class="progress" aria-hidden="true"><div class="progress__fill" id="progressFill"></div></div>
 
+  <script src="assets/js/main.js"></script>
   <script>
     (function () {
-      var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.deck > .slide'));
       var counter = document.getElementById('counter');
       var fill = document.getElementById('progressFill');
       var prevBtn = document.getElementById('prevBtn');
@@ -683,6 +683,25 @@
 
       function toArabic(value) {
         return String(value).replace(/\d/g, function (d) { return arabicDigits[Number(d)]; });
+      }
+
+      /* كل عناصر reveal تظهر مباشرة في العرض لأن الشرائح المخفية لا يلاحظها IntersectionObserver */
+      Array.prototype.forEach.call(document.querySelectorAll('.deck .reveal'), function (el) {
+        el.classList.add('is-visible');
+      });
+
+      function fit(printMode) {
+        slides.forEach(function (slide) {
+          var el = slide.querySelector('.slide-scale');
+          if (!el) return;
+          el.style.transform = 'none';
+          var naturalH = el.scrollHeight;
+          var naturalW = el.offsetWidth;
+          var availableH = printMode ? 770 : slide.clientHeight - 16;
+          var availableW = printMode ? 1090 : slide.clientWidth - 16;
+          var scale = Math.min(1, availableH / naturalH, availableW / naturalW);
+          el.style.transform = 'scale(' + scale.toFixed(4) + ')';
+        });
       }
 
       function show(index) {
@@ -731,7 +750,19 @@
         touchStartX = null;
       }, { passive: true });
 
+      var resizeFrame = null;
+      window.addEventListener('resize', function () {
+        if (resizeFrame) cancelAnimationFrame(resizeFrame);
+        resizeFrame = requestAnimationFrame(function () { fit(false); });
+      });
+      window.addEventListener('beforeprint', function () { fit(true); });
+      window.addEventListener('afterprint', function () { fit(false); });
+
+      fit(false);
       show(0);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () { fit(false); });
+      }
     })();
   </script>
 </body>
