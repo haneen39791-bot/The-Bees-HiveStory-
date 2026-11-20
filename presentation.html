@@ -30,10 +30,6 @@
   </script>
 
   <style>
-    /* ==========================================================================
-       طبقة العرض التقديمي فقط: كل قسم من index.html يصبح شريحة كاملة الشاشة.
-       التنسيق والنصوص والصور والخلفيات كلها قادمة من assets/css/style.css
-       ========================================================================== */
     html, body { height: 100%; }
     body { overflow: hidden; }
 
@@ -183,52 +179,28 @@
   <main class="deck" id="deck" aria-label="عرض حكاية خلية">
 
     <!-- ============ 1. Hero ============ -->
-    <section class="slide hero is-active" id="hero" aria-label="الشريحة الأولى: حكاية خلية">
+     <section class="slide hero is-active" id="hero" aria-label="الشريحة الأولى: حكاية خلية">
       <div class="slide-scale">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
             <span class="eyebrow">حكاية خلية <span class="bee-dot">✦</span> عالم النحل</span>
-
             <h1 class="hero-title">
               حكاية خلية
               <span class="accent-text">«رحلة بين أجنحة النحل وأسرار الطبيعة»</span>
             </h1>
-
             <p class="hero-lead">النحل من الكائنات الصغيرة التي تلعب دورًا كبيرًا في الطبيعة</p>
-            <p>فهو لا ينتج العسل فحسب، بل يساعد النباتات على التكاثر ويحافظ على التوازن البيئي. هيا نكتشف معًا أسرار هذا العالم المدهش!</p>
-
-            <div class="hero-actions">
-              <a class="btn btn--primary" href="#about">
-                ابدأ الرحلة
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <a class="btn btn--ghost" href="#quiz">اختبر معلوماتك</a>
-            </div>
-          </div>
-
-          <div class="hero-art reveal" aria-label="صور من عالم النحل وأقراص العسل">
-            <div class="hero-float hero-float--one">
-              <img src="assets/img/honey-flow.jpg" alt="خلية نحل وأقراص العسل" loading="lazy">
-            </div>
-            <div class="hero-float hero-float--two">
-              <img src="assets/img/bees.jpg" alt="نحل على أطراف خلية" loading="lazy">
+            <p>حكاية خلية... رحلة قصيرة في عالم مخلوق صغير يحمل أسرارًا عظيمة، من لحظة خروجه من البيضة إلى صناعة العسل، ومن دوره في تلقيح الأزهار إلى ما ذكره القرآن الكريم في خلقه.</p>
+            <div class="hero-art reveal" aria-label="صور من عالم النحل وأقراص العسل">
+              <div class="hero-float hero-float--one">
+                  <img src="assets/img/honey-flow.jpg" alt="خلية نحل وأقراص العسل" loading="lazy">
+                </div>
+                <div class="hero-float hero-float--two">
+                  <img src="assets/img/bees.jpg" alt="نحل على أطراف خلية" loading="lazy">
+                </div>
             </div>
           </div>
         </div>
-
-        <div class="container">
-          <div class="stacked-intro reveal">
-            <div class="stats-tab">
-              <strong>+٢٠ ألف</strong>
-              <span>نوع من النحل في مختلف أنحاء العالم</span>
-            </div>
-            <div class="intro-banner">
-              <p><strong>حكاية خلية...</strong> رحلة قصيرة في عالم مخلوق صغير يحمل أسرارًا عظيمة، من لحظة خروجه من البيضة إلى صناعة العسل، ومن دوره في تلقيح الأزهار إلى ما ذكره القرآن الكريم في خلقه.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
     <!-- ============ 2. What are bees? ============ -->
     <section class="slide section section--tint" id="about" aria-label="الشريحة الثانية: ما هو النحل">
@@ -329,11 +301,6 @@
               <p>تخرج نحلة مكتملة النمو لتبدأ العمل داخل الخلية وخارجها.</p>
             </article>
           </div>
-
-          <figure class="lifecycle-figure reveal">
-            <img src="assets/img/bee-life-cycle.svg" alt="مخطط يوضح دورة حياة النحلة في أربع مراحل: البيضة، اليرقة، العذراء، النحلة البالغة" loading="lazy" width="1200" height="330">
-            <figcaption>دورة حياة النحلة في رسم توضيحي مختصر</figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -366,7 +333,6 @@
               <p>يُخزّن العسل في العيون السداسية داخل الأقراص الشمعية.</p>
             </article>
           </div>
-
           <div class="banner-image reveal">
             <img src="assets/img/honey-flow.jpg" alt="أقراص العسل الشمعية في الخلية" loading="lazy" width="1200" height="675">
             <div class="banner-caption">
@@ -445,6 +411,7 @@
               <figcaption>صورة من آيات سورة النحل</figcaption>
             </figure>
 
+            <!--  
             <div class="reveal">
               <div class="quran-extra">
                 <h4>لماذا سُميت سورة النحل بهذا الاسم؟</h4>
@@ -453,8 +420,10 @@
 
               <h3 style="margin:0 0 6px; color:var(--text-strong);">ماذا نتعلم من الآيات؟</h3>
               <p style="margin:0 0 18px; color:var(--muted); font-size:0.92rem;">يمكن تقسيم المعاني إلى أربعة معانٍ واضحة:</p>
-
+-->
               <div class="quran-meanings">
+                 <h3 style="margin:0 0 6px; color:var(--text-strong);">ماذا نتعلم من الآيات؟</h3>
+              <p style="margin:0 0 18px; color:var(--muted); font-size:0.92rem;">يمكن تقسيم المعاني إلى أربعة معانٍ واضحة:</p>
                 <div class="meaning">
                   <span class="meaning-num">1</span>
                   <div><h4>بيوت النحل</h4><p>﴿أَنِ اتَّخِذِي مِنَ الْجِبَالِ بُيُوتًا وَمِنَ الشَّجَرِ وَمِمَّا يَعْرِشُونَ﴾ — أرشد الله النحل إلى اتخاذ بيوت في الجبال والأشجار وما يبنيه الناس.</p></div>
