@@ -169,6 +169,19 @@
       margin-inline: 0;
     }
 
+    /* الشريحة ٢: الصورة على اليسار بحجم أصغر والمحتوى على اليمين */
+    .deck #about .split { grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr); }
+    .deck #about .split-copy { grid-column: 1; }
+    .deck #about .split-visual { grid-column: 2; }
+    .deck #about .image-card--wide { max-width: 420px; padding: 8px; }
+    .deck #about .image-card::after {
+      inset-inline-end: -12px;
+      bottom: -14px;
+      width: 48px;
+      height: 48px;
+      font-size: 1.3rem;
+    }
+
     /* الشريحة ٩: الصور خلفية للبطاقات مع الحفاظ على نفس الأبعاد */
     .deck #facts .fact-card .fact-media { height: 96px; aspect-ratio: auto; }
     .deck #facts .fact-card {
