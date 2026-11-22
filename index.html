@@ -228,6 +228,8 @@
         height: 210mm;
         break-after: page;
         page-break-after: always;
+        break-inside: avoid;
+        page-break-inside: avoid;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
@@ -715,6 +717,11 @@
       /* كل عناصر reveal تظهر مباشرة في العرض لأن الشرائح المخفية لا يلاحظها IntersectionObserver */
       Array.prototype.forEach.call(document.querySelectorAll('.deck .reveal'), function (el) {
         el.classList.add('is-visible');
+      });
+
+      /* تحميل كل الصور مبكرًا حتى تظهر في ملف PDF عند الطباعة مباشرة */
+      Array.prototype.forEach.call(document.querySelectorAll('.deck img[loading="lazy"]'), function (img) {
+        img.loading = 'eager';
       });
 
       function fit(printMode) {
